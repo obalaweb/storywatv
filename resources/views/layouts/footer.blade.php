@@ -3,8 +3,8 @@
         <div class="container">
             <div class="thim-3-col">
                 <aside class="widget widget_thim_layout_builder">
-                    <div class="wpb_single_image">
-                        <img src="assets/images/logo-header-05.png" alt="logo" />
+                    <div class="wpb_single_image" style="font-size: 36px; font-weight: bolder;">
+                        <span style="color:white; size:24px">Story</span><span style="color:red">wa</span>
                     </div>
 
                     <div class="wpb_text_column">
@@ -194,8 +194,7 @@
         <div class="container">
             <div class="thim-1-col">
                 <div class="copyright-text">
-                    Copyright 2018 Corporate WordPress Theme by <a
-                        href="https://themeforest.net/user/thimpress?gclid=EAIaIQobChMI5ub2p9bx6wIVlnZgCh0BYQnJEAAYASAAEgIEMvD_BwE">ThimPress</a>
+                    Copyright 2024 StoryWa by <a href="https://codprez.com">Codprez</a>
                 </div>
             </div>
         </div>
