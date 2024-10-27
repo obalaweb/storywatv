@@ -1,30 +1,55 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head>
-    <body class="font-sans text-gray-900 antialiased">
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">
-            <div>
-                <a href="/">
-                    <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-                </a>
-            </div>
+    <link rel="icon" type="image/png" href="assets/images/favicon-1.png" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="assets/css/libs/bootstrap/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="assets/fonts/ionicons-2.0.1/css/ionicons.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="assets/css/libs/slick/slick.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="assets/css/libs/magnific-popup/magnific-popup.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
+    <!--===============================================================================================-->
+</head>
 
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white dark:bg-gray-800 shadow-md overflow-hidden sm:rounded-lg">
-                {{ $slot }}
-            </div>
-        </div>
-    </body>
+<body class="responsive home-1">
+
+    <div id="wrapper-container">
+        @include('layouts.header')
+        {{ $slot }}
+        @include('layouts.footer')
+    </div>
+
+    <!--===============================================================================================-->
+    <script src="assets/js/libs/jquery/jquery.js"></script>
+    <!--===============================================================================================-->
+    <script src="assets/js/libs/bootstrap/popper.js"></script>
+    <script src="assets/js/libs/bootstrap/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="assets/js/libs/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="assets/js/libs/slick/slick.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="assets/js/libs/isotope/isotope.pkgd.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="assets/js/libs/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="assets/js/thim-custom.js"></script>
+    <div id="back-to-top" class="btn-back-to-top">
+        <i class="ion ion-ios-arrow-thin-up"></i>
+    </div>
+</body>
+
 </html>
