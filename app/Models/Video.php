@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Awcodes\Curator\Models\Media;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
 
 class Video extends Model
 {
@@ -78,6 +79,21 @@ class Video extends Model
 
         return $this->belongsTo(Media::class, 'thumbnail_url', 'id');
     }
+
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::saved(function () {
+            Cache::forget('index_videos');
+        });
+
+        static::deleted(function () {
+            Cache::forget('index_videos');
+        });
+    }
+
 }
 
 

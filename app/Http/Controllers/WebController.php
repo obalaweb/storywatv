@@ -12,8 +12,10 @@ class WebController extends Controller
     public function index()
     {
         $videos = Cache::remember('index_videos', 36000, function () {
-            return Video::latest()->where('ratings', '>', 70)->paginate(8);
+            return Video::latest()->where('is_active', true)->where('trending_score', '>', 70)->paginate(8);
         });
+
+
         return view('frontend.index', compact('videos'));
     }
 
