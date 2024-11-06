@@ -4,7 +4,7 @@
             <div class="thim-3-col">
                 <aside class="widget widget_thim_layout_builder">
                     <div class="wpb_single_image" style="font-size: 36px; font-weight: bolder;">
-                        <span style="color:white; size:24px">Story</span><span style="color:red">wa</span>
+                        <span style="color:white; size:24px">Story</span><span style="color:#F97316">wa</span>
                     </div>
 
                     <div class="wpb_text_column">
@@ -24,27 +24,18 @@
 
                     <div class="bp-element bp-element-social-links vblog-layout-footer">
                         <div class="wrap-element">
-                            <a href="https://www.facebook.com/ThimPress" class="social-item">
+                            <a href="#" class="social-item">
                                 <i class="ion ion-social-facebook"></i>
                             </a>
 
-                            <a href="https://www.facebook.com/ThimPress" class="social-item">
+                            <a href="#" class="social-item">
                                 <i class="ion ion-social-twitter"></i>
                             </a>
-
-                            <a href="https://www.facebook.com/ThimPress" class="social-item">
-                                <i class="ion ion-social-vimeo"></i>
-                            </a>
-
-                            <a href="https://www.facebook.com/ThimPress" class="social-item">
+                            <a href="#" class="social-item">
                                 <i class="ion ion-social-youtube"></i>
                             </a>
 
-                            <a href="https://www.facebook.com/ThimPress" class="social-item">
-                                <i class="ion ion-social-googleplus"></i>
-                            </a>
-
-                            <a href="https://www.facebook.com/ThimPress" class="social-item">
+                            <a href="#" class="social-item">
                                 <i class="ion ion-social-instagram-outline"></i>
                             </a>
                         </div>
@@ -81,46 +72,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="item">
-                                    <div class="pic">
-                                        <a href="single-blog.html">
-                                            <img src="assets/images/png-post-02.png" alt="IMG">
-                                        </a>
-                                    </div>
-
-                                    <div class="text">
-                                        <h4 class="title">
-                                            <a href="single-blog.html">
-                                                Fashion Outfit Ideas to Try From Instagram This Week
-                                            </a>
-                                        </h4>
-
-                                        <div class="date">
-                                            August 11, 2018
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="item">
-                                    <div class="pic">
-                                        <a href="single-blog.html">
-                                            <img src="assets/images/png-post-03.png" alt="IMG">
-                                        </a>
-                                    </div>
-
-                                    <div class="text">
-                                        <h4 class="title">
-                                            <a href="single-blog.html">
-                                                7 Soaps to Supercharge Your Daily Skincare Routine
-                                            </a>
-                                        </h4>
-
-                                        <div class="date">
-                                            August 11, 2018
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -139,46 +90,6 @@
                                 <li class="cat-item">
                                     <a href="javascript:;">Fragrances</a>
                                     <span class="count">15</span>
-                                </li>
-
-                                <li class="cat-item">
-                                    <a href="javascript:;">Hair Care</a>
-                                    <span class="count">12</span>
-                                </li>
-
-                                <li class="cat-item">
-                                    <a href="javascript:;">Make Up</a>
-                                    <span class="count">6</span>
-                                </li>
-
-                                <li class="cat-item">
-                                    <a href="javascript:;">Outfits</a>
-                                    <span class="count">9</span>
-                                </li>
-
-                                <li class="cat-item">
-                                    <a href="javascript:;">Skin Care</a>
-                                    <span class="count">10</span>
-                                </li>
-
-                                <li class="cat-item">
-                                    <a href="javascript:;">Style</a>
-                                    <span class="count">8</span>
-                                </li>
-
-                                <li class="cat-item">
-                                    <a href="javascript:;">Fashion</a>
-                                    <span class="count">5</span>
-                                </li>
-
-                                <li class="cat-item">
-                                    <a href="javascript:;">Lifestyle</a>
-                                    <span class="count">2</span>
-                                </li>
-
-                                <li class="cat-item">
-                                    <a href="javascript:;">Wellness</a>
-                                    <span class="count">3</span>
                                 </li>
                             </ul>
                         </div>

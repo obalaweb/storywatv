@@ -5,19 +5,19 @@
             <div class="container">
                 <div class="wrap-content-header">
                     <div class="header-logo" style="font-size: 36px; font-weight: bolder;">
-                        <a href="index-2.html" class="logo">
+                        <a href="/" class="logo">
                             {{-- <img src="assets/images/logo-header-05.png" alt="IMG"> --}}
-                            <span style="color:white; size:24px">Story</span><span style="color:red">wa</span>
+                            <span style="color:white; size:24px">Story</span><span style="color:#F97316">wa</span>
                         </a>
 
-                        <a href="index-2.html" class="mobile-logo">
+                        <a href="/" class="mobile-logo">
                             {{-- <img src="assets/images/logo-header-05.png" alt="IMG"> --}}
-                            <span style="color:white; size:24px">Story</span><span style="color:red">wa</span>
+                            <span style="color:white; size:24px">Story</span><span style="color:#F97316">wa</span>
                         </a>
 
-                        <a href="index-2.html" class="sticky-logo">
+                        <a href="/" class="sticky-logo">
                             {{-- <img src="assets/images/logo-header-05.png" alt="IMG"> --}}
-                            <span style="color:white; size:24px">Story</span><span style="color:red">wa</span>
+                            <span style="color:white; size:24px">Story</span><span style="color:#F97316">wa</span>
                         </a>
                     </div>
 
@@ -61,17 +61,8 @@
                                         <a href="javascript:;" class="social-item">
                                             <i class="ion ion-social-twitter"></i>
                                         </a>
-
-                                        <a href="javascript:;" class="social-item">
-                                            <i class="ion ion-social-vimeo"></i>
-                                        </a>
-
                                         <a href="javascript:;" class="social-item">
                                             <i class="ion ion-social-youtube"></i>
-                                        </a>
-
-                                        <a href="javascript:;" class="social-item">
-                                            <i class="ion ion-social-googleplus"></i>
                                         </a>
 
                                         <a href="javascript:;" class="social-item">
@@ -103,134 +94,46 @@
                     <nav class="main-navigation">
                         <ul class="menu-lists">
                             <li class="menu-item-has-children">
-                                <a href="index-2.html">
+                                <a href="/">
                                     Home
                                 </a>
-
-                                <ul class="sub-menu">
-                                    <li>
-                                        <a href="index-2.html">
-                                            Home 1
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a href="home2.html">
-                                            Home 2
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a href="director.html">
-                                            Director
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a href="beauty-vlogger.html">
-                                            Beauty Vlogger
-                                        </a>
-                                    </li>
-                                </ul>
                             </li>
 
-                            <li class="menu-item-has-children">
-                                <a href="shop.html">
-                                    Movie
+                            <li>
+                                <a href="{{route('movies')}}">
+                                    Movies
                                 </a>
-
-                                <ul class="sub-menu">
-                                    <li>
-                                        <a href="shop.html">
-                                            Shop
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a href="single-shop.html">
-                                            Single Shop
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="menu-item-has-children">
-                                <a href="list-videos.html">
-                                    Videos
-                                </a>
-
-                                <ul class="sub-menu">
-                                    <li>
-                                        <a href="list-videos.html">
-                                            List Videos
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a href="single-video.html">
-                                            Single Video
-                                        </a>
-                                    </li>
-                                </ul>
                             </li>
 
                             <li class="menu-item-has-children">
                                 <a href="javascript:;">
-                                    Features
+                                    Pages
                                 </a>
 
                                 <ul class="sub-menu">
                                     <li>
-                                        <a href="about.html">
+                                        <a href="{{route('aboutUs')}}">
                                             About us
                                         </a>
                                     </li>
 
                                     <li>
-                                        <a href="list-authors.html">
-                                            List Authors
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a href="single-author.html">
-                                            Single Author
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a href="submit-video.html">
+                                        <a href="{{route('submitVideo')}}">
                                             Submit Video
                                         </a>
                                     </li>
                                 </ul>
                             </li>
 
-                            <li class="menu-item-has-children">
-                                <a href="blog.html">
+                            <li>
+                                <a href="{{route('blog.index')}}">
                                     Blog
                                 </a>
-
-                                <ul class="sub-menu">
-                                    <li>
-                                        <a href="blog.html">
-                                            Blog
-                                        </a>
-                                    </li>
-
-
-
-                                    <li>
-                                        <a href="single-blog.html">
-                                            Single Blog
-                                        </a>
-                                    </li>
-                                </ul>
                             </li>
 
                             <li>
-                                <a href="contact.html">
-                                    Contact
+                                <a href="{{ route('contactUs') }}">
+                                    Contact Us
                                 </a>
                             </li>
                         </ul>
@@ -238,7 +141,7 @@
 
                     <div class="menu-right">
                         <div class="bp-element bp-element-button">
-                            <a href="submit-video.html" class="btn">
+                            <a href="{{route('submitVideo')}}" class="btn">
                                 <i class="ion ion-upload"></i>
                                 SUBMIT VIDEO
                             </a>
@@ -277,13 +180,12 @@
 
                                                     <form id="registerform">
                                                         <p class="login-username">
-                                                            <input type="text" placeholder="Username"
-                                                                class="input">
+                                                            <input type="text" placeholder="Username" class="input">
                                                         </p>
 
                                                         <p class="login-email">
-                                                            <input type="email" name="user_email"
-                                                                placeholder="Email" class="input">
+                                                            <input type="email" name="user_email" placeholder="Email"
+                                                                class="input">
                                                         </p>
 
                                                         <p class="text-mail">
@@ -294,8 +196,7 @@
                                                             <input type="submit" name="wp-submit-register"
                                                                 class="button button-primary button-large"
                                                                 value="Register" />
-                                                            <input type="hidden" name="redirect_to"
-                                                                value="" />
+                                                            <input type="hidden" name="redirect_to" value="" />
                                                         </p>
                                                     </form>
                                                 </div>
@@ -325,13 +226,12 @@
 
                                                     <form id="loginform">
                                                         <p class="login-username">
-                                                            <input type="text" placeholder="Username"
-                                                                class="input">
+                                                            <input type="text" placeholder="Username" class="input">
                                                         </p>
 
                                                         <p class="login-email">
-                                                            <input type="email" name="user_email"
-                                                                placeholder="Email" class="input">
+                                                            <input type="email" name="user_email" placeholder="Email"
+                                                                class="input">
                                                         </p>
 
                                                         <p class="login-remember">
@@ -343,8 +243,7 @@
                                                             <input type="submit" name="wp-submit-register"
                                                                 class="button button-primary button-large"
                                                                 value="Register" />
-                                                            <input type="hidden" name="redirect_to"
-                                                                value="" />
+                                                            <input type="hidden" name="redirect_to" value="" />
                                                         </p>
 
                                                         <p class="link-bottom"><a href="#losspw" class="display-box"
@@ -378,8 +277,7 @@
                                                 </h3>
 
                                                 <div class="form-row">
-                                                    <form name="lostpasswordform" id="lostpasswordform"
-                                                        method="post">
+                                                    <form name="lostpasswordform" id="lostpasswordform" method="post">
                                                         <p class="description"> Please enter your username or email
                                                             address. You will receive a link to create a new password
                                                             via email.
@@ -424,138 +322,46 @@
 <nav class="mobile-menu-container mobile-effect">
     <div class="inner-menu">
         <ul class="nav navbar-nav">
-            <li class="current-menu-item menu-item-has-children">
-                <a href="index-2.html">
+            <li class="current-menu-item">
+                <a href="/">
                     Home
                 </a>
-
-                <ul class="sub-menu">
-                    <li>
-                        <a href="index-2.html">
-                            Home 1
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="home2.html">
-                            Home 2
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="director.html">
-                            Director
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="beauty-vlogger.html">
-                            Beauty Vlogger
-                        </a>
-                    </li>
-                </ul>
             </li>
 
-            <li class="menu-item-has-children">
-                <a href="shop.html">
+            <li>
+                <a href="{{route('movies')}}">
                     Movie
                 </a>
-
-                <ul class="sub-menu">
-                    <li>
-                        <a href="shop.html">
-                            Shop
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="single-shop.html">
-                            Single Shop
-                        </a>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="menu-item-has-children">
-                <a href="list-videos.html">
-                    Videos
-                </a>
-
-                <ul class="sub-menu">
-                    <li>
-                        <a href="list-videos.html">
-                            List Videos
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="single-video.html">
-                            Single Video
-                        </a>
-                    </li>
-                </ul>
             </li>
 
             <li class="menu-item-has-children">
                 <a href="javascript:;">
-                    Features
+                    Pages
                 </a>
 
                 <ul class="sub-menu">
                     <li>
-                        <a href="about.html">
+                        <a href="{{route('aboutUs')}}">
                             About us
                         </a>
                     </li>
 
                     <li>
-                        <a href="list-authors.html">
-                            List Authors
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="single-author.html">
-                            Single Author
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="submit-video.html">
+                        <a href="{{route('submitVideo')}}">
                             Submit Video
                         </a>
                     </li>
                 </ul>
             </li>
 
-            <li class="menu-item-has-children">
-                <a href="blog1.html">
+            <li>
+                <a href="{{route('blog.index')}}">
                     Blog
                 </a>
-
-                <ul class="sub-menu">
-                    <li>
-                        <a href="blog1.html">
-                            Blog 1
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="blog2.html">
-                            Blog 2
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="single-blog.html">
-                            Single Blog
-                        </a>
-                    </li>
-                </ul>
             </li>
 
             <li>
-                <a href="contact.html">
+                <a href="{{route('contactUs') }}">
                     Contact
                 </a>
             </li>
@@ -566,7 +372,7 @@
                 <div class="menu-useful-links-container">
                     <ul class="menu">
                         <li class="menu-item">
-                            <a href="about.html">CLIENTS</a>
+                            <a href="{{route('aboutUs')}}">CLIENTS</a>
                         </li>
 
                         <li class="menu-item menu-item-has-children">
@@ -574,13 +380,13 @@
 
                             <ul class="sub-menu">
                                 <li class="menu-item">
-                                    <a href="contact.html">
+                                    <a href="#">
                                         Menu item
                                     </a>
                                 </li>
 
                                 <li class="menu-item">
-                                    <a href="contact.html">
+                                    <a href="{{route('contactUs') }}">
                                         Menu item
                                     </a>
                                 </li>
@@ -588,7 +394,7 @@
                         </li>
 
                         <li class="menu-item">
-                            <a href="contact.html">CONTACT US</a>
+                            <a href="{{route('contactUs')}}">CONTACT US</a>
                         </li>
                     </ul>
                 </div>
@@ -597,7 +403,9 @@
             <aside class="widget widget_text">
                 <div class="textwidget">
                     <div class="copyright-text">
-                        Copyright 2018 Corporate WordPress Theme by ThimPress. <a href="javascript:;">ThimPress</a>
+                        Copyright 2024 <span style="color:white;">Story</span><span style="color:#F97316;">Wa</span>
+                        Website
+                        by <a href="https://codprez.com">Codprez.</a>
                     </div>
                 </div>
             </aside>

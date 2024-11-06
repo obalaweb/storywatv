@@ -14,8 +14,8 @@
                                     <div class="video">
                                         <iframe width="100%" height="580"
                                             src="https://www.youtube.com/embed/aW-8jW6_xGE?si=NQMIrl7MHXhZa_7O"
-                                            frameborder="0" allow="autoplay; encrypted-media" showinfo="0"
-                                            rel="0" allowfullscreen>
+                                            frameborder="0" allow="autoplay; encrypted-media" showinfo="0" rel="0"
+                                            allowfullscreen>
                                         </iframe>
                                     </div>
                                 </div>
@@ -87,7 +87,9 @@
                                 </div>
 
                                 <div class="slide-slick">
-                                    <x-video />
+                                    @foreach ($videos as $video)
+                                        <x-video :video="$video" />
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -99,27 +101,7 @@
         <!-- end Popular video home-1 -->
 
         <!-- Ads home-1 -->
-        <div class="thim-ads_home-1">
-            <div class="container">
-                <!-- shortcode call-to-action -->
-                <div class="bp-element bp-element-call-to-action vblog-layout-1">
-                    <div class="wrap-element" style="background-image: url(assets/images/ads-01.jpg);">
-                        <div class="overlay"></div>
-
-                        <a href="javascript:;" class="content">
-                            <div class="text">
-                                GAME SHOW Art line Collection Handmade
-                            </div>
-
-                            <div class="btn-readmore btn-small shape-round">
-                                read more
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <!-- end shortcode call-to-action -->
-            </div>
-        </div>
+        <x-ads-card />
         <!-- end Ads home-1 -->
 
         <!--6 home-1 -->
@@ -155,77 +137,7 @@
                                 </div>
 
                                 <div class="slide-slick">
-                                    <div class="item-slick">
-                                        <div class="post-item">
-                                            <img src="assets/images/post-05.jpg" alt="IMG">
-
-                                            <div class="overlay"></div>
-
-                                            <a href="blog.html" class="content">
-                                                <span class="title">Game</span> 250 Movies
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="item-slick">
-                                        <div class="post-item">
-                                            <img src="assets/images/post-06.jpg" alt="IMG">
-
-                                            <div class="overlay"></div>
-
-                                            <a href="blog.html" class="content">
-                                                <span class="title">Animation</span> 380 Movies
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="item-slick">
-                                        <div class="post-item">
-                                            <img src="assets/images/post-07.jpg" alt="IMG">
-
-                                            <div class="overlay"></div>
-
-                                            <a href="blog.html" class="content">
-                                                <span class="title">Life Style</span> 180 Movies
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="item-slick">
-                                        <div class="post-item">
-                                            <img src="assets/images/post-05.jpg" alt="IMG">
-
-                                            <div class="overlay"></div>
-
-                                            <a href="blog.html" class="content">
-                                                <span class="title">Game</span> 250 Movies
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="item-slick">
-                                        <div class="post-item">
-                                            <img src="assets/images/post-06.jpg" alt="IMG">
-
-                                            <div class="overlay"></div>
-
-                                            <a href="blog.html" class="content">
-                                                <span class="title">Animation</span> 380 Movies
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="item-slick">
-                                        <div class="post-item">
-                                            <img src="assets/images/post-07.jpg" alt="IMG">
-
-                                            <div class="overlay"></div>
-
-                                            <a href="blog.html" class="content">
-                                                <span class="title">Life Style</span> 180 Movies
-                                            </a>
-                                        </div>
-                                    </div>
+                                    <x-category-card />
                                 </div>
                             </div>
                         </div>
@@ -249,7 +161,7 @@
                                 </h3>
 
                                 <a href="javascript:;" class="link">
-                                    See all news
+                                    All Videos
                                 </a>
                             </div>
 
@@ -298,204 +210,25 @@
                             <div class="grid-sizer"></div>
 
                             <div class="grid-item size_2x2">
-                                <div class="post-item feature-item">
-                                    <a href="single-video.html"><img src="assets/images/bg-featurepost-02.jpg"
-                                            alt="IMG"></a>
-
-                                    <div class="overlay"></div>
-
-                                    <div class="meta-info">
-                                        <div class="imdb">
-                                            <span class="value">5</span>IMDb
-                                        </div>
-
-                                        <div class="label" style="background: #ff6c00;">
-                                            NEW
-                                        </div>
+                                <x-video-card class="feature-item" image="assets/images/bg-featurepost-02.jpg">
+                                    <div class="info">
+                                        <span>BY POLLY</span>
+                                        <span>MAY 1, 2018</span>
                                     </div>
 
-                                    <div class="content">
-                                        <h4 class="title">
-                                            <a href="single-video.html">
-                                                MTV Game Awards Graphic Package The Best Of year 2018
-                                            </a>
-                                        </h4>
-
-                                        <div class="info">
-                                            <span>BY POLLY</span>
-                                            <span>MAY 1, 2018</span>
-                                        </div>
-
-                                        <div class="description">
-                                            S1 E2 Escorpión/DzecThe one Mayans seek answers from a local crew as the
-                                            Galindo you worlds north and south of the border.
-                                        </div>
-
-                                        <a href="single-video.html" class="btn-readmore btn-small shape-round">
-                                            read more
-                                        </a>
+                                    <div class="description">
+                                        S1 E2 Escorpión/DzecThe one Mayans seek answers from a local crew as the
+                                        Galindo you worlds north and south of the border.
                                     </div>
-                                </div>
+
+                                    <a href="single-video.html" class="btn-readmore btn-small shape-round">
+                                        read more
+                                    </a>
+                                </x-video-card>
                             </div>
 
                             <div class="grid-item ">
-                                <div class="post-item">
-                                    <a href="javascript:;"><img src="assets/images/post-08.jpg" alt="IMG"></a>
-
-                                    <div class="overlay"></div>
-
-                                    <div class="meta-info">
-                                        <div class="imdb">
-                                            <span class="value">5</span>IMDb
-                                        </div>
-
-                                        <div class="label" style="background: #ff6c00;">
-                                            Trend
-                                        </div>
-                                    </div>
-
-                                    <div class="content">
-                                        <h4 class="title">
-                                            <a href="single-video.html">
-                                                The City Truck
-                                            </a>
-                                        </h4>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="grid-item ">
-                                <div class="post-item">
-                                    <a href="single-video.html"><img src="assets/images/post-09.jpg"
-                                            alt="IMG"></a>
-
-                                    <div class="overlay"></div>
-
-                                    <div class="meta-info">
-                                        <div class="imdb">
-                                            <span class="value">5</span>IMDb
-                                        </div>
-
-                                        <div class="label" style="background: #e40914;">
-                                            Hot
-                                        </div>
-                                    </div>
-
-                                    <div class="content">
-                                        <h4 class="title">
-                                            <a href="single-video.html">
-                                                The City Truck
-                                            </a>
-                                        </h4>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="grid-item ">
-                                <div class="post-item">
-                                    <a href="single-video.html"><img src="assets/images/post-10.jpg"
-                                            alt="IMG"></a>
-
-                                    <div class="overlay"></div>
-
-                                    <div class="meta-info">
-                                        <div class="imdb">
-                                            <span class="value">5</span>IMDb
-                                        </div>
-
-                                        <div class="label" style="background: #e40914;">
-                                            HD
-                                        </div>
-                                    </div>
-
-                                    <div class="content">
-                                        <h4 class="title">
-                                            <a href="single-video.html">
-                                                The City Truck
-                                            </a>
-                                        </h4>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="grid-item ">
-                                <div class="post-item">
-                                    <a href="single-video.html"><img src="assets/images/post-11.jpg"
-                                            alt="IMG"></a>
-
-                                    <div class="overlay"></div>
-
-                                    <div class="meta-info">
-                                        <div class="imdb">
-                                            <span class="value">5</span>IMDb
-                                        </div>
-
-                                        <div class="label" style="background: #e40914;">
-                                            Hot
-                                        </div>
-                                    </div>
-
-                                    <div class="content">
-                                        <h4 class="title">
-                                            <a href="single-video.html">
-                                                The City Truck
-                                            </a>
-                                        </h4>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="grid-item ">
-                                <div class="post-item">
-                                    <a href="single-video.html"><img src="assets/images/post-12.jpg"
-                                            alt="IMG"></a>
-
-                                    <div class="overlay"></div>
-
-                                    <div class="meta-info">
-                                        <div class="imdb">
-                                            <span class="value">5</span>IMDb
-                                        </div>
-
-                                        <div class="label" style="background: #e40914;">
-                                            HD
-                                        </div>
-                                    </div>
-
-                                    <div class="content">
-                                        <h4 class="title">
-                                            <a href="single-video.html">
-                                                The City Truck
-                                            </a>
-                                        </h4>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="grid-item ">
-                                <div class="post-item">
-                                    <a href="javascript:;"><img src="assets/images/post-13.jpg" alt="IMG"></a>
-
-                                    <div class="overlay"></div>
-
-                                    <div class="meta-info">
-                                        <div class="imdb">
-                                            <span class="value">5</span>IMDb
-                                        </div>
-
-                                        <div class="label" style="background: #e40914;">
-                                            Hot
-                                        </div>
-                                    </div>
-
-                                    <div class="content">
-                                        <h4 class="title">
-                                            <a href="single-video.html">
-                                                The City Truck
-                                            </a>
-                                        </h4>
-                                    </div>
-                                </div>
+                                <x-video-card image="assets/images/post-08.jpg" />
                             </div>
                         </div>
                     </div>
@@ -506,23 +239,7 @@
         <!-- end Latest video home-1 -->
 
         <!-- Ads home-1 -->
-        <div class="thim-ads_home-1">
-            <div class="container">
-                <!-- shortcode call-to-action -->
-                <div class="bp-element bp-element-call-to-action vblog-layout-2">
-                    <div class="wrap-element" style="background-image: url(assets/images/ads-01.jpg);">
-                        <div class="overlay"></div>
-
-                        <a href="javascript:;" class="content">
-                            <div class="text">
-                                GAME SHOW Art line Collection Handmade
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <!-- end shortcode call-to-action -->
-            </div>
-        </div>
+        <x-ads-card />
         <!-- end Ads home-1 -->
 
         <!-- News feed home-1 -->
@@ -562,8 +279,7 @@
                                                 <div class="col-lg-6">
                                                     <div class="feature-item">
                                                         <a href="single-blog.html"><img
-                                                                src="assets/images/bg-featurepost-03.jpg"
-                                                                alt="IMG"></a>
+                                                                src="assets/images/bg-featurepost-03.jpg" alt="IMG"></a>
 
                                                         <div class="overlay"></div>
 
@@ -586,68 +302,19 @@
                                                 </div>
 
                                                 <div class="col-lg-6">
-                                                    <div class="item">
-                                                        <div class="pic">
-                                                            <a href="single-blog.html"><img
-                                                                    src="assets/images/post-14.jpg"
-                                                                    alt="IMG"></a>
-                                                        </div>
-
-                                                        <div class="text">
-                                                            <div class="info">
-                                                                MAY 1, 2018
-                                                            </div>
-
-                                                            <h4 class="title">
-                                                                <a href="single-blog.html">
-                                                                    The Dark Tower Trailer
-                                                                </a>
-                                                            </h4>
-
-                                                            <div class="description">
-                                                                To start the day in the best way, enjoythe extraordinary
-                                                                buffetbreakfast in the our courtyard caressed at auctor.
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="item">
-                                                        <div class="pic">
-                                                            <a href="single-blog.html"><img
-                                                                    src="assets/images/post-15.jpg"
-                                                                    alt="IMG"></a>
-                                                        </div>
-
-                                                        <div class="text">
-                                                            <div class="info">
-                                                                MAY 1, 2018
-                                                            </div>
-
-                                                            <h4 class="title">
-                                                                <a href="single-blog.html">
-                                                                    The Dark Tower Trailer
-                                                                </a>
-                                                            </h4>
-
-                                                            <div class="description">
-                                                                To start the day in the best way, enjoythe extraordinary
-                                                                buffetbreakfast in the our courtyard caressed at auctor.
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                    <x-post-card />
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="item-slick">
+                                    <!-- <div class="item-slick">
                                         <div class="post-item">
                                             <div class="row">
                                                 <div class="col-lg-6">
                                                     <div class="feature-item">
                                                         <a href="single-blog.html"><img
-                                                                src="assets/images/bg-featurepost-03.jpg"
-                                                                alt="IMG"></a>
+                                                                src="assets/images/bg-featurepost-03.jpg" alt="IMG"></a>
 
                                                         <div class="overlay"></div>
 
@@ -673,33 +340,7 @@
                                                     <div class="item">
                                                         <div class="pic">
                                                             <a href="single-blog.html"><img
-                                                                    src="assets/images/post-14.jpg"
-                                                                    alt="IMG"></a>
-                                                        </div>
-
-                                                        <div class="text">
-                                                            <div class="info">
-                                                                MAY 1, 2018
-                                                            </div>
-
-                                                            <h4 class="title">
-                                                                <a href="single-blog.html">
-                                                                    The Dark Tower Trailer
-                                                                </a>
-                                                            </h4>
-
-                                                            <div class="description">
-                                                                To start the day in the best way, enjoythe extraordinary
-                                                                buffetbreakfast in the our courtyard caressed at auctor.
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="item">
-                                                        <div class="pic">
-                                                            <a href="single-blog.html"><img
-                                                                    src="assets/images/post-15.jpg"
-                                                                    alt="IMG"></a>
+                                                                    src="assets/images/post-14.jpg" alt="IMG"></a>
                                                         </div>
 
                                                         <div class="text">
@@ -722,7 +363,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
+
                                 </div>
                             </div>
                         </div>
