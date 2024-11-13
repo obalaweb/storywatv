@@ -5,6 +5,8 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\CategoryResource\Pages;
 use App\Filament\Resources\CategoryResource\RelationManagers;
 use App\Models\Category;
+use Awcodes\Curator\Components\Forms\CuratorPicker;
+use Awcodes\Curator\Components\Tables\CuratorColumn;
 use Filament\Forms;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
@@ -33,8 +35,10 @@ class CategoryResource extends Resource
                 TextInput::make('name')
                     ->columnSpanFull()
                     ->required(),
-                RichEditor::make('description')
-                    ->columnSpanFull(),
+                RichEditor::make('description'),
+                CuratorPicker::make('thumbnail')
+                    ->maxWidth(100)
+                    ->relationship('image', 'image'),
             ]);
     }
 
@@ -42,6 +46,9 @@ class CategoryResource extends Resource
     {
         return $table
             ->columns([
+                CuratorColumn::make('thumbnail')
+                    ->circular()
+                    ->size(60),
                 Tables\Columns\TextColumn::make('name')
                     ->description(fn(Category $category) => config('app.url') . '/categories/' . $category->slug),
                 Tables\Columns\TextColumn::make('created_at')->dateTime(),

@@ -1,11 +1,11 @@
 <div class="item-slick">
     <div class="post-item">
-        <img src="assets/images/post-05.jpg" alt="IMG">
+        <img src="{{$category->image->url}}" alt="IMG">
 
         <div class="overlay"></div>
 
-        <a href="blog.html" class="content">
-            <span class="title">Game</span> 250 Movies
+        <a href="#" class="content">
+            <span class="title">{{$category->name}}</span> {{ $category->videos_count }} Videos
         </a>
     </div>
 </div>

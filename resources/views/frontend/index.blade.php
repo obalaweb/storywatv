@@ -137,7 +137,9 @@
                                 </div>
 
                                 <div class="slide-slick">
-                                    <x-category-card />
+                                    @foreach ($categories as $category)
+                                        <x-category-card :category="$category" />
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -210,25 +212,28 @@
                             <div class="grid-sizer"></div>
 
                             <div class="grid-item size_2x2">
-                                <x-video-card class="feature-item" image="assets/images/bg-featurepost-02.jpg">
+                                <x-video-card :video="$featuredVideo" class="feature-item"
+                                    image="assets/images/bg-featurepost-02.jpg">
                                     <div class="info">
-                                        <span>BY POLLY</span>
-                                        <span>MAY 1, 2018</span>
+                                        <span>BY {{ $featuredVideo->postBy->name }}</span>
+                                        <span>{{$featuredVideo->postedOn }}</span>
                                     </div>
 
                                     <div class="description">
-                                        S1 E2 Escorpión/DzecThe one Mayans seek answers from a local crew as the
-                                        Galindo you worlds north and south of the border.
+                                        {{ $featuredVideo->short_description }}
                                     </div>
 
-                                    <a href="single-video.html" class="btn-readmore btn-small shape-round">
+                                    <a href="{{route('videos.show', $featuredVideo->youtube_id)}}"
+                                        class="btn-readmore btn-small shape-round">
                                         read more
                                     </a>
                                 </x-video-card>
                             </div>
 
                             <div class="grid-item ">
-                                <x-video-card image="assets/images/post-08.jpg" />
+                                @foreach ($otherVideos as $video)
+                                    <x-video-card :video="$video" image="assets/images/post-08.jpg" />
+                                @endforeach
                             </div>
                         </div>
                     </div>

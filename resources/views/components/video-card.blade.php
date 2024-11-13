@@ -1,8 +1,9 @@
-@props(['class' => '', 'title' => '', 'image'])
+@props(['class' => '', 'title' => '', 'image' => '', 'video'])
+
 
 <div class="post-item {{$class}}">
     <a href="javascript:;">
-        <img src="{{$image}}" alt="IMG"></a>
+        <img src="{{ $video ? $video->thumbnail->url : $image}}" alt="IMG"></a>
 
     <div class="overlay"></div>
 
@@ -19,7 +20,6 @@
     <div class="content">
         <h4 class="title">
             <a href="https://www.youtube.com/watch?v=NEqtQYxzQaE" class="btn-play popup-youtube">
-                The City Truck
             </a>
 
         </h4>

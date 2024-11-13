@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Filament\Resources;
+namespace App\Filament\Account\Resources;
 
-use App\Filament\Resources\VideoResource\Pages;
+use App\Filament\Account\Resources\MyVideoResource\Pages;
+use App\Filament\Account\Resources\MyVideoResource\Pages\EditMyVideo;
+use App\Filament\Account\Resources\MyVideoResource\RelationManagers;
 use App\Filament\Resources\VideoResource\Pages\EditVideo;
-use App\Filament\Resources\VideoResource\RelationManagers;
 use App\Models\Category;
-use App\Models\User;
 use App\Models\Video;
 use Awcodes\Curator\Components\Forms\CuratorPicker;
 use Awcodes\Curator\Components\Tables\CuratorColumn;
@@ -14,10 +14,8 @@ use Filament\Forms;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\RichEditor;
-use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -27,14 +25,12 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class VideoResource extends Resource
+class MyVideoResource extends Resource
 {
     protected static ?string $model = Video::class;
 
-    protected static ?string $navigationGroup = 'Videos';
-
-    protected static ?int $navigationSort = 1;
-    protected static ?string $navigationIcon = 'untitledui-play';
+    protected static ?string $navigationLabel = "My Videos";
+    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
     {
@@ -55,39 +51,16 @@ class VideoResource extends Resource
                             ]),
                     Grid::make()->columnSpan(5)->schema([
                         CuratorPicker::make('thumbnail_url')
-                            ->name('Thumbnail')
                             ->columnSpanFull(),
-                        Section::make('Metadata')->schema([
-                            Grid::make()->schema([
-                                TextInput::make('duration'),
-                                Select::make('user_id')
-                                    ->label('Author')
-                                    ->options(User::all()->pluck('name', 'id'))
-                                    ->searchable(),
-                                Select::make('category_id')
-                                    ->label('Category')
-                                    ->options(Category::all()->pluck('name', 'id'))
-                                    ->searchable(),
-                                Select::make('status')
-                                    ->options([
-                                        'draft' => 'Draft',
-                                        'active' => 'Published',
-                                        'archived' => 'Archived',
-                                    ])->native(false),
-                                Select::make('is_trending')->options([
-                                    true => 'Yes',
-                                    false => 'No',
-                                ])->native(false),
-                                TextInput::make('trending_score')
-                                    ->label('Trending Score (%)')
-                                    ->numeric()
-                                    ->minValue(1)
-                                    ->maxValue(100),
-                                DateTimePicker::make('trending_since')->hidden(class_exists(EditVideo::class)),
-                                Toggle::make('is_featured')->default(false),
-
-                            ])
-                        ])
+                        TextInput::make('duration'),
+                        Select::make('category_id')
+                            ->label('Category')
+                            ->options(Category::all()->pluck('name', 'id'))
+                            ->columnSpanFull()
+                            ->searchable(),
+                        DateTimePicker::make('trending_since')
+                            ->columnSpanFull()
+                            ->hidden(class_exists(EditVideo::class)),
                     ]),
                 ])
             ]);
@@ -96,6 +69,7 @@ class VideoResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->modifyQueryUsing(fn(Video $video) => $video->where('user_id', auth()->id()))
             ->columns([
                 CuratorColumn::make('thumbnail_url')
                     ->name('Thumbnail')
@@ -135,9 +109,9 @@ class VideoResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListVideos::route('/'),
-            'create' => Pages\CreateVideo::route('/create'),
-            'edit' => Pages\EditVideo::route('/{record}/edit'),
+            'index' => Pages\ListMyVideos::route('/'),
+            'create' => Pages\CreateMyVideo::route('/create'),
+            'edit' => Pages\EditMyVideo::route('/{record}/edit'),
         ];
     }
 }

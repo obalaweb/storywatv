@@ -1,5 +1,10 @@
 <?php
 
+function site_name()
+{
+
+}
+
 if (!function_exists('youtube_embed')) {
     function youtube_embed($url)
     {

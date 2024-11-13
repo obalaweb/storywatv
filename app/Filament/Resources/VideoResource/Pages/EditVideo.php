@@ -5,6 +5,7 @@ namespace App\Filament\Resources\VideoResource\Pages;
 use App\Filament\Resources\VideoResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
+use Illuminate\Support\Facades\Cache;
 
 class EditVideo extends EditRecord
 {
@@ -15,5 +16,12 @@ class EditVideo extends EditRecord
         return [
             Actions\DeleteAction::make(),
         ];
+    }
+
+    protected function mutateFormDataBeforeSave(array $data): array
+    {
+        Cache::forget('index_videos');
+
+        return $data;
     }
 }

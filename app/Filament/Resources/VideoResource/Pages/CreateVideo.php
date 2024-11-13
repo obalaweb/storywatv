@@ -5,6 +5,7 @@ namespace App\Filament\Resources\VideoResource\Pages;
 use App\Filament\Resources\VideoResource;
 use Filament\Actions;
 use Filament\Resources\Pages\CreateRecord;
+use Illuminate\Support\Facades\Cache;
 
 class CreateVideo extends CreateRecord
 {
@@ -15,6 +16,8 @@ class CreateVideo extends CreateRecord
         if ($data['is_trending'] == true) {
             $data['trending_since'] = now();
         }
+
+        Cache::forget('index_videos');
 
         return $data;
     }

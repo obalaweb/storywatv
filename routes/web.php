@@ -11,6 +11,10 @@ Route::get('blog', [WebController::class, 'blog'])->name('blog.index');
 Route::get('blog/{blog}', [WebController::class, 'blogDetail'])
     ->name('blog.show');
 Route::get('about-us', [WebController::class, 'aboutUs'])->name('aboutUs');
+
+Route::get('videos', [WebController::class, 'videos'])->name('videos');
+Route::get('videos/{video:youtube_id}', [WebController::class, 'showVideo'])->name('videos.show');
+
 Route::get('movies', [WebController::class, 'movies'])->name('movies');
 Route::get('movies/{movie:slug}', [WebController::class, 'showMovie'])->name('showMovie');
 

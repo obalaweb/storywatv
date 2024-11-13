@@ -1376,7 +1376,7 @@ html {
 .bp-element-social-links.vblog-layout-header-1
     .wrap-element
     .social-item:hover {
-    background: #f97316;
+    background: #e40914;
     color: #fff;
 }
 
@@ -1405,8 +1405,8 @@ html {
 .bp-element-social-links.vblog-layout-header-2
     .wrap-element
     .social-item:hover {
-    border-color: #f97316;
-    background: #f97316;
+    border-color: #e40914;
+    background: #e40914;
     color: #fff;
 }
 
@@ -1450,8 +1450,8 @@ html {
 }
 
 .bp-element-social-links.vblog-layout-footer .wrap-element .social-item:hover {
-    background: #f97316;
-    border-color: #f97316;
+    background: #e40914;
+    border-color: #e40914;
     color: #fff;
 }
 
@@ -2089,7 +2089,7 @@ form#lostpasswordform .description {
 \*/
 .home-2 .login-popup form input[type="submit"],
 .home-1 .login-popup form input[type="submit"] {
-    background: #f97316;
+    background: #e40914;
     color: #fff;
     transition: all 0.2s;
 }
@@ -2170,7 +2170,7 @@ form#lostpasswordform .description {
     font-weight: 300;
     font-size: 14px;
     line-height: 1.5;
-    color: #f97316;
+    color: #e40914;
     text-decoration: underline;
     word-break: break-word;
     border-left: 1px solid #2b2b2b;
@@ -2232,7 +2232,7 @@ form#lostpasswordform .description {
     .slide-posts
     .wrap-arrow-slick
     .arow-slick:hover {
-    color: #f97316;
+    color: #e40914;
 }
 
 .bp-element-posts.vblog-layout-slider-3
@@ -2327,7 +2327,7 @@ form#lostpasswordform .description {
     .content
     .title
     a:hover {
-    color: #f97316;
+    color: #e40914;
 }
 
 .bp-element-posts.vblog-layout-slider-3
@@ -2391,7 +2391,7 @@ form#lostpasswordform .description {
     .info
     .item-info
     a:hover {
-    color: #f97316;
+    color: #e40914;
 }
 
 .bp-element-posts.vblog-layout-slider-3 .post-item .item {
@@ -2424,7 +2424,7 @@ form#lostpasswordform .description {
     font-weight: 300;
     font-size: 14px;
     line-height: 1.85;
-    color: #f97316;
+    color: #e40914;
     text-transform: uppercase;
     word-break: break-word;
     margin-bottom: 2px;
@@ -2445,7 +2445,7 @@ form#lostpasswordform .description {
 }
 
 .bp-element-posts.vblog-layout-slider-3 .post-item .item .text .title a:hover {
-    color: #f97316;
+    color: #e40914;
 }
 
 .bp-element-posts.vblog-layout-slider-3 .post-item .item .text .description {
@@ -3500,7 +3500,7 @@ form#lostpasswordform .description {
     .text
     .title
     a:hover {
-    color: #f97316;
+    color: #e40914;
 }
 
 .bp-element-posts.vblog-layout-list-footer
@@ -3534,7 +3534,7 @@ form#lostpasswordform .description {
     display: block;
     width: 3px;
     height: calc(100% - 15px);
-    background-color: #f97316;
+    background-color: #e40914;
     position: absolute;
     top: 7px;
     left: 0;
@@ -3604,7 +3604,7 @@ form#lostpasswordform .description {
     .text
     .title
     a:hover {
-    color: #f97316;
+    color: #e40914;
 }
 
 .bp-element-posts.layout-list-2
@@ -3630,7 +3630,7 @@ form#lostpasswordform .description {
     font-weight: 300;
     font-size: 14px;
     line-height: 1.85;
-    color: #f97316;
+    color: #e40914;
     word-break: break-word;
 }
 
@@ -4085,7 +4085,7 @@ form#lostpasswordform .description {
     .text
     .title
     a:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .bp-element-st-list-videos.vblog-layout-1
@@ -4150,7 +4150,7 @@ form#lostpasswordform .description {
     .info
     .item-info
     a:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .bp-element-st-list-videos.vblog-layout-1
@@ -4176,7 +4176,7 @@ form#lostpasswordform .description {
     line-height: 1.5;
     color: #fff;
     text-transform: uppercase;
-    background: #F97316;
+    background: #e40914;
     padding: 0 49px;
     transition: all 0.2s;
 }
@@ -4211,7 +4211,7 @@ form#lostpasswordform .description {
     color: #fff;
     word-break: break-word;
     max-width: calc(100% - 30px);
-    background: #F97316;
+    background: #e40914;
     padding: 2px 11px;
     position: absolute;
     bottom: 15px;
@@ -4234,7 +4234,7 @@ form#lostpasswordform .description {
 }
 
 .bp-element-st-list-videos.vblog-layout-1-1 .normal-items .item .title a:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .bp-element-st-list-videos.vblog-layout-1-1 .normal-items .item .info {
@@ -4305,7 +4305,7 @@ form#lostpasswordform .description {
     line-height: 1.5;
     color: #fff;
     word-break: break-word;
-    background: #F97316;
+    background: #e40914;
     padding: 2px 11px;
     margin-right: 15px;
 }
@@ -4364,7 +4364,7 @@ form#lostpasswordform .description {
     .content
     .title
     a:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .bp-element-st-list-videos.vblog-layout-2 .wrap-element .video-item .btn-play {
@@ -4609,7 +4609,7 @@ form#lostpasswordform .description {
     font-weight: 300;
     font-size: 14px;
     line-height: 1.5;
-    color: #F97316;
+    color: #e40914;
     text-decoration: underline;
     word-break: break-word;
     border-left: 1px solid #2b2b2b;
@@ -4675,7 +4675,7 @@ form#lostpasswordform .description {
     .slide-posts
     .wrap-arrow-slick
     .arow-slick:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .bp-element-st-list-videos.vblog-layout-slider-1
@@ -4775,7 +4775,7 @@ form#lostpasswordform .description {
     color: #fff;
     text-align: center;
     word-break: break-word;
-    background: #F97316;
+    background: #e40914;
     padding: 2px 11px;
 }
 
@@ -4832,7 +4832,7 @@ form#lostpasswordform .description {
 }
 
 .bp-element-st-list-videos.vblog-layout-slider-1 .post-item .title a:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .bp-element-st-list-videos.vblog-layout-slider-1 .post-item .info {
@@ -5253,7 +5253,7 @@ form#lostpasswordform .description {
     .wrap-dot-slick
     .dots-slick
     li:hover {
-    background: #F97316;
+    background: #e40914;
 }
 
 .bp-element-st-list-videos.vblog-layout-slider-4
@@ -5262,7 +5262,7 @@ form#lostpasswordform .description {
     .wrap-dot-slick
     .dots-slick
     li.slick-active {
-    background: #F97316;
+    background: #e40914;
 }
 
 .bp-element-st-list-videos.vblog-layout-slider-4
@@ -5384,7 +5384,7 @@ form#lostpasswordform .description {
     font-weight: 300;
     font-size: 14px;
     line-height: 1.5;
-    color: #F97316;
+    color: #e40914;
     text-decoration: underline !important;
     word-break: break-word;
     border-left: 1px solid #2b2b2b;
@@ -5456,7 +5456,7 @@ form#lostpasswordform .description {
     ul
     li
     a:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .bp-element-st-list-videos.vblog-layout-grid-1
@@ -5465,7 +5465,7 @@ form#lostpasswordform .description {
     ul
     li.current-cat
     a {
-    color: #F97316;
+    color: #e40914;
 }
 
 .bp-element-st-list-videos.vblog-layout-grid-1 .grid-isotope {
@@ -5576,7 +5576,7 @@ form#lostpasswordform .description {
     color: #fff;
     text-align: center;
     word-break: break-word;
-    background: #F97316;
+    background: #e40914;
     padding: 2px 11px;
 }
 
@@ -5622,7 +5622,7 @@ form#lostpasswordform .description {
     .content
     .title
     a:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .bp-element-st-list-videos.vblog-layout-grid-1
@@ -5687,7 +5687,7 @@ form#lostpasswordform .description {
     .content
     .title
     a:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .bp-element-st-list-videos.vblog-layout-grid-1
@@ -5762,7 +5762,7 @@ form#lostpasswordform .description {
     line-height: 1.5;
     color: #fff;
     text-transform: uppercase;
-    background: #F97316;
+    background: #e40914;
     padding: 0 39px;
     transition: all 0.2s;
 }
@@ -5827,7 +5827,7 @@ form#lostpasswordform .description {
     font-weight: 300;
     font-size: 14px;
     line-height: 1.5;
-    color: #F97316;
+    color: #e40914;
     text-decoration: underline !important;
     word-break: break-word;
     border-left: 1px solid #2b2b2b;
@@ -5899,7 +5899,7 @@ form#lostpasswordform .description {
     ul
     li
     a:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .bp-element-st-list-videos.vblog-layout-grid-2
@@ -5908,7 +5908,7 @@ form#lostpasswordform .description {
     ul
     li.current-cat
     a {
-    color: #F97316;
+    color: #e40914;
 }
 
 .bp-element-st-list-videos.vblog-layout-grid-2 .grid-posts {
@@ -6024,7 +6024,7 @@ form#lostpasswordform .description {
     color: #fff;
     text-align: center;
     word-break: break-word;
-    background: #F97316;
+    background: #e40914;
     padding: 2px 11px;
 }
 
@@ -6061,7 +6061,7 @@ form#lostpasswordform .description {
     .content
     .title
     a:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .bp-element-st-list-videos.vblog-layout-grid-3 .heading-post {
@@ -6455,7 +6455,7 @@ form#lostpasswordform .description {
     .bp-element-st-list-videos.vblog-layout-slider-1
     .heading-post
     .link:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .home-2
@@ -6478,7 +6478,7 @@ form#lostpasswordform .description {
     .slide-posts
     .wrap-arrow-slick
     .arow-slick:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .home-2 .bp-element-st-list-videos.vblog-layout-slider-1 .post-item .title a {
@@ -6490,7 +6490,7 @@ form#lostpasswordform .description {
     .post-item
     .title
     a:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .home-2 .bp-element-st-list-videos.vblog-layout-slider-1 .post-item .info {
@@ -6511,7 +6511,7 @@ form#lostpasswordform .description {
     .heading-post
     .wrap-title
     .link:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .home-2
@@ -7101,7 +7101,7 @@ form#lostpasswordform .description {
     .wrap-arrow-slick
     .arow-slick
     i:hover {
-    background: #F97316;
+    background: #e40914;
 }
 
 .bp-element-st-list-categories.vblog-layout-slider-1
@@ -7321,7 +7321,7 @@ form#lostpasswordform .description {
     .slide-posts
     .wrap-arrow-slick
     .arow-slick:hover {
-    background: #F97316;
+    background: #e40914;
 }
 
 .bp-element-st-list-categories.vblog-layout-slider-2
@@ -7553,7 +7553,7 @@ form#lostpasswordform .description {
     color: #fff;
     text-transform: uppercase;
     white-space: nowrap;
-    background: #F97316;
+    background: #e40914;
     padding: 0 39px;
     transition: all 0.2s;
 }
@@ -8413,7 +8413,7 @@ form#lostpasswordform .description {
     .item-product
     .media-item
     .btn-addcart:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .bp-element-products.vblog-layout-grid-1
@@ -8460,7 +8460,7 @@ form#lostpasswordform .description {
     .text-item
     .title
     a:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .bp-element-products.vblog-layout-grid-1
@@ -8469,7 +8469,7 @@ form#lostpasswordform .description {
     .text-item
     .price {
     font-weight: 500;
-    color: #F97316;
+    color: #e40914;
     font-size: 14px;
     line-height: 1.5;
     word-break: break-word;
@@ -8523,7 +8523,7 @@ form#lostpasswordform .description {
     display: block;
     width: 3px;
     height: calc(100% - 15px);
-    background-color: #F97316;
+    background-color: #e40914;
     position: absolute;
     top: 7px;
     left: 0;
@@ -8609,7 +8609,7 @@ form#lostpasswordform .description {
     .text
     .title
     a:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .bp-element-products.vblog-layout-list-1
@@ -8621,7 +8621,7 @@ form#lostpasswordform .description {
     font-weight: 300;
     font-size: 14px;
     line-height: 1.85;
-    color: #F97316;
+    color: #e40914;
     word-break: break-word;
     display: block;
 }
@@ -8673,7 +8673,7 @@ form#lostpasswordform .description {
 }
 
 .bp-element-tabs.vblog-layout-1 .thim-wrap-tabs .thim-nav-tabs .item-nav:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .bp-element-tabs.vblog-layout-1
@@ -8695,7 +8695,7 @@ form#lostpasswordform .description {
     display: block;
     width: 100%;
     height: 1px;
-    background: #F97316;
+    background: #e40914;
     position: absolute;
     bottom: -1px;
     left: 0;
@@ -8706,7 +8706,7 @@ form#lostpasswordform .description {
     .thim-wrap-tabs
     .thim-nav-tabs
     .item-nav.active {
-    color: #F97316;
+    color: #e40914;
 }
 
 .bp-element-tabs.vblog-layout-1
@@ -8889,7 +8889,7 @@ form#lostpasswordform .description {
 .bp-element-icon-box.vblog-layout-2 .icon-box .icon-image {
     font-size: 60px;
     line-height: 1;
-    color: #F97316;
+    color: #e40914;
     margin-bottom: 20px;
 }
 
@@ -8929,12 +8929,12 @@ form#lostpasswordform .description {
 }
 
 .bp-element-icon-box.vblog-layout-2 .icon-box .content .description a i:hover {
-    color: #F97316;
-    border-color: #F97316;
+    color: #e40914;
+    border-color: #e40914;
 }
 
 .bp-element-icon-box.vblog-layout-2 .icon-box .content .description a:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .bp-element-icon-box.vblog-layout-2.align-center {
@@ -9048,7 +9048,7 @@ form#lostpasswordform .description {
     .text-author
     .name-author
     a:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .bp-element-our-team.layout-5
@@ -9333,7 +9333,7 @@ form#lostpasswordform .description {
     .list-categories
     .cat-item
     a:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .bp-element-categories.layout-list-1
@@ -9438,7 +9438,7 @@ form#lostpasswordform .description {
     .wrap-select2
     .select2-container--vblog-search
     .select2-results__option:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .bp-element-st-search-videos.vblog-layout-header-1
@@ -9447,7 +9447,7 @@ form#lostpasswordform .description {
     .wrap-select2
     .select2-container--vblog-search
     .select2-results__option[aria-selected="true"] {
-    color: #F97316;
+    color: #e40914;
 }
 
 .bp-element-st-search-videos.vblog-layout-header-1
@@ -9519,7 +9519,7 @@ form#lostpasswordform .description {
     .wrap-element
     .search-form
     .btn-search:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .bp-element-st-search-videos.vblog-layout-header-1
@@ -9578,7 +9578,7 @@ form#lostpasswordform .description {
     .list-search-videos
     li
     a:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .bp-element-st-search-videos.vblog-layout-header-2 .wrap-element {
@@ -9691,7 +9691,7 @@ form#lostpasswordform .description {
     .wrap-element
     .search-form
     .btn-search:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .bp-element-st-search-videos.vblog-layout-header-2
@@ -9751,7 +9751,7 @@ form#lostpasswordform .description {
     .list-search-videos
     li
     a:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .responsive {
@@ -10110,7 +10110,7 @@ form#lostpasswordform .description {
 }
 
 .site-header.layout-1 .header-container .bottom-header {
-    background: #F97316;
+    background: #e40914;
 }
 
 .site-header.layout-1
@@ -10561,7 +10561,7 @@ form#lostpasswordform .description {
     color: #fff;
     text-transform: uppercase;
     white-space: nowrap;
-    background: #F97316;
+    background: #e40914;
     padding: 0 23px;
 }
 
@@ -10604,7 +10604,7 @@ form#lostpasswordform .description {
     .wrap-content-header
     .menu-mobile-effect:hover
     .icon-wrap {
-    color: #F97316;
+    color: #e40914;
 }
 
 .site-header.layout-2
@@ -10656,7 +10656,7 @@ form#lostpasswordform .description {
     .menu-lists
     > li
     > a:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .site-header.layout-2
@@ -10667,7 +10667,7 @@ form#lostpasswordform .description {
     .menu-lists
     > li.current-menu-item
     a {
-    color: #F97316;
+    color: #e40914;
 }
 
 .site-header.layout-2
@@ -10742,7 +10742,7 @@ form#lostpasswordform .description {
     .bp-element-login-popup.layout-1
     .login-links
     .login {
-    color: #F97316;
+    color: #e40914;
     transition: all 0.2s;
 }
 
@@ -11504,7 +11504,7 @@ form#lostpasswordform .description {
 }
 
 .mobile-menu-container .navbar-nav li.current-menu-item > a {
-    color: #F97316;
+    color: #e40914;
 }
 
 .mobile-menu-container .navbar-nav li a {
@@ -11513,7 +11513,7 @@ form#lostpasswordform .description {
 }
 
 .mobile-menu-container .navbar-nav li a:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .mobile-menu-container .navbar-nav li .sub-menu {
@@ -11543,7 +11543,7 @@ form#lostpasswordform .description {
 }
 
 .mobile-menu-container > .copyright-text a {
-    color: #F97316;
+    color: #e40914;
 }
 
 .mobile-menu-container .widget-area {
@@ -11567,7 +11567,7 @@ form#lostpasswordform .description {
     display: block;
     width: 3px;
     height: calc(100% - 15px);
-    background-color: #F97316;
+    background-color: #e40914;
     position: absolute;
     top: 7px;
     left: 0;
@@ -11653,7 +11653,7 @@ form#lostpasswordform .description {
 }
 
 .mobile-menu-container .widget-area .widget_text .textwidget .copyright-text a {
-    color: #F97316;
+    color: #e40914;
 }
 
 @media (min-width: 992px) {
@@ -11831,7 +11831,7 @@ form#lostpasswordform .description {
 }
 
 .site-footer.layout-1 .footer-sidebars .widget_categories ul .cat-item a:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .site-footer.layout-1 .footer-sidebars .widget_categories ul .cat-item .count {
@@ -11854,7 +11854,7 @@ form#lostpasswordform .description {
 }
 
 .site-footer.layout-1 .copyright-area .copyright-text a {
-    color: #F97316;
+    color: #e40914;
     transition: all 0.2s;
 }
 
@@ -12119,7 +12119,7 @@ form#lostpasswordform .description {
     display: block;
     width: 3px;
     height: calc(100% - 15px);
-    background-color: #F97316;
+    background-color: #e40914;
     position: absolute;
     top: 7px;
     left: 0;
@@ -12172,11 +12172,11 @@ form#lostpasswordform .description {
 }
 
 .site-content .widget-area .widget ul li:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .site-content .widget-area .widget ul li:hover:before {
-    color: #F97316;
+    color: #e40914;
 }
 
 .site-content .widget-area .widget_search .search-form {
@@ -12211,7 +12211,7 @@ form#lostpasswordform .description {
     .search-form
     label
     .search-field:focus {
-    border-color: #F97316;
+    border-color: #e40914;
 }
 
 .site-content
@@ -12356,7 +12356,7 @@ form#lostpasswordform .description {
     .widget_product_categories
     .product-categories
     .cat-item:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .site-content
@@ -12364,7 +12364,7 @@ form#lostpasswordform .description {
     .widget_product_categories
     .product-categories
     .cat-item:hover:before {
-    color: #F97316;
+    color: #e40914;
 }
 
 .site-content .widget-area .widget_tag_cloud .tagcloud {
@@ -12389,8 +12389,8 @@ form#lostpasswordform .description {
 
 .site-content .widget-area .widget_tag_cloud .tagcloud .tag-cloud-link:hover {
     color: #fff;
-    background-color: #F97316;
-    border-color: #F97316;
+    background-color: #e40914;
+    border-color: #e40914;
 }
 
 .site-content .widget-area .widget_text .textwidget img {
@@ -12617,7 +12617,7 @@ form#lostpasswordform .description {
 }
 
 .yikes-easy-mc-form.comment-form .wrap-input input:focus {
-    border-color: #F97316;
+    border-color: #e40914;
 }
 
 .yikes-easy-mc-form.comment-form .wrap-textarea {
@@ -12639,7 +12639,7 @@ form#lostpasswordform .description {
 }
 
 .yikes-easy-mc-form.comment-form .wrap-textarea textarea:focus {
-    border-color: #F97316;
+    border-color: #e40914;
 }
 
 .yikes-easy-mc-form.comment-form button {
@@ -12648,7 +12648,7 @@ form#lostpasswordform .description {
     line-height: 1.5;
     color: #fff;
     text-transform: uppercase;
-    background: #F97316;
+    background: #e40914;
     padding: 0 51px;
 }
 
@@ -12686,7 +12686,7 @@ form#lostpasswordform .description {
 }
 
 .yikes-easy-mc-form.layout-footer label input:focus {
-    border-color: #F97316;
+    border-color: #e40914;
 }
 
 .yikes-easy-mc-form.layout-footer label input::-webkit-input-placeholder {
@@ -12711,7 +12711,7 @@ form#lostpasswordform .description {
     line-height: 1.5;
     color: #fff;
     text-transform: uppercase;
-    background: #F97316;
+    background: #e40914;
     height: 43px;
     padding: 0 15px;
     transition: all 0.2s;
@@ -12833,7 +12833,7 @@ form#lostpasswordform .description {
 }
 
 .contact-form .wrap-input input:focus {
-    border-color: #F97316;
+    border-color: #e40914;
 }
 
 .contact-form .wrap-input input::-webkit-input-placeholder {
@@ -12876,7 +12876,7 @@ form#lostpasswordform .description {
 }
 
 .contact-form .wap-textarea textarea:focus {
-    border-color: #F97316;
+    border-color: #e40914;
 }
 
 .contact-form .wap-textarea textarea::-webkit-input-placeholder {
@@ -12914,7 +12914,7 @@ form#lostpasswordform .description {
     height: 46px;
     border-radius: 23px;
     padding: 0 39px;
-    background: #F97316;
+    background: #e40914;
     margin-right: auto;
     margin-left: auto;
     cursor: pointer;
@@ -13009,7 +13009,7 @@ form#lostpasswordform .description {
     font-weight: 400;
     font-size: 13px;
     line-height: 1.3;
-    color: #F97316;
+    color: #e40914;
 }
 
 .submit-video-form .divline-form {
@@ -13056,7 +13056,7 @@ form#lostpasswordform .description {
 }
 
 .submit-video-form .item-input .input-field input:focus {
-    border-color: #F97316;
+    border-color: #e40914;
 }
 
 .submit-video-form .item-input .input-field input::-webkit-input-placeholder {
@@ -13094,7 +13094,7 @@ form#lostpasswordform .description {
 }
 
 .submit-video-form .item-input .input-field textarea:focus {
-    border-color: #F97316;
+    border-color: #e40914;
 }
 
 .submit-video-form
@@ -13146,8 +13146,8 @@ form#lostpasswordform .description {
 
 .submit-video-form .item-input.input-choose-file .input-field:hover {
     color: #fff;
-    background: #F97316;
-    border-color: #F97316;
+    background: #e40914;
+    border-color: #e40914;
 }
 
 .submit-video-form .item-input.input-choose-file .input-field input {
@@ -13178,7 +13178,7 @@ form#lostpasswordform .description {
     line-height: 52px;
     color: #fff;
     text-transform: uppercase;
-    background: #F97316;
+    background: #e40914;
     padding: 0 67px;
     margin-right: auto;
     margin-left: auto;
@@ -13341,7 +13341,7 @@ form#lostpasswordform .description {
     color: #fff;
     text-align: center;
     line-height: 47px;
-    background: #F97316;
+    background: #e40914;
     width: 47px;
     height: 47px;
     position: fixed;
@@ -13445,7 +13445,7 @@ form#lostpasswordform .description {
     font-weight: 300;
     font-size: 14px;
     line-height: 1.8;
-    color: #F97316;
+    color: #e40914;
     word-break: break-word;
     position: relative;
 }
@@ -13455,7 +13455,7 @@ form#lostpasswordform .description {
 }
 
 .page-title .main-top .content .wrap-breadcrumb .breadcrumbs li a:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .page-title .main-top .content .wrap-breadcrumb .breadcrumbs .breadcrum-icon {
@@ -13536,13 +13536,13 @@ form#lostpasswordform .description {
 }
 
 .loop-pagination .page-numbers:hover {
-    border-color: #F97316;
-    color: #F97316;
+    border-color: #e40914;
+    color: #e40914;
 }
 
 .loop-pagination .page-numbers.current {
-    background: #F97316;
-    border-color: #F97316;
+    background: #e40914;
+    border-color: #e40914;
     color: #fff;
 }
 
@@ -13567,7 +13567,7 @@ form#lostpasswordform .description {
 }
 
 .loop-pagination .page-numbers.next:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .pagi-blog {
@@ -14236,7 +14236,7 @@ form#lostpasswordform .description {
 }
 
 .select2-container--default .select2-results__option:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .select2-container--default .select2-results__option[role="group"] {
@@ -14378,7 +14378,7 @@ form#lostpasswordform .description {
 }
 
 .select2-container--vblog-shop-page .select2-results__option:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .select2-container--vblog-shop-page .select2-results__option[role="group"] {
@@ -14535,7 +14535,7 @@ form#lostpasswordform .description {
 }
 
 .select2-container--vblog-search .select2-results__option:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .select2-container--vblog-search .select2-results__option + li {
@@ -14553,7 +14553,7 @@ form#lostpasswordform .description {
 
 .select2-container--vblog-search
     .select2-results__option[aria-selected="true"] {
-    color: #F97316;
+    color: #e40914;
 }
 
 .select2-container--vblog-search .select2-results__group {
@@ -14592,7 +14592,7 @@ form#lostpasswordform .description {
 
 .bl-input-quanlity .btn-num-down:hover,
 .bl-input-quanlity .btn-num-up:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .bl-input-quanlity .btn-num-down:active,
@@ -14747,7 +14747,7 @@ form#lostpasswordform .description {
 }
 
 .blog-list.vblog-layout-1 .item-blog .text-item .title a:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .blog-list.vblog-layout-1 .item-blog .text-item .info {
@@ -14767,7 +14767,7 @@ form#lostpasswordform .description {
 }
 
 .blog-list.vblog-layout-1 .item-blog .text-item .info a:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .blog-list.vblog-layout-1 .item-blog .text-item .info .info-item {
@@ -14809,7 +14809,7 @@ form#lostpasswordform .description {
     line-height: 40px;
     color: #fff;
     text-transform: uppercase;
-    background: #F97316;
+    background: #e40914;
     padding: 0 39px;
 }
 
@@ -14946,7 +14946,7 @@ form#lostpasswordform .description {
     .slide-images
     .wrap-arrow-slick
     .arow-slick:hover {
-    background: #F97316;
+    background: #e40914;
 }
 
 .blog-list.vblog-layout-1
@@ -15024,7 +15024,7 @@ form#lostpasswordform .description {
     .wrap-dot-slick
     .dots-slick
     li:hover {
-    background: #F97316;
+    background: #e40914;
 }
 
 .blog-list.vblog-layout-1
@@ -15035,7 +15035,7 @@ form#lostpasswordform .description {
     .wrap-dot-slick
     .dots-slick
     li.slick-active {
-    background: #F97316;
+    background: #e40914;
 }
 
 .blog-list.vblog-layout-1 .item-blog.slide-item .media-item .pic .item-img {
@@ -15517,7 +15517,7 @@ form#lostpasswordform .description {
 }
 
 .bl-blog-detail .head-blog .info-blog-detail a:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .bl-blog-detail .head-blog .info-blog-detail .info-item {
@@ -15641,8 +15641,8 @@ form#lostpasswordform .description {
     .share
     .socials
     .item-social:hover {
-    background: #F97316;
-    border-color: #F97316;
+    background: #e40914;
+    border-color: #e40914;
     color: #fff;
 }
 
@@ -15684,7 +15684,7 @@ form#lostpasswordform .description {
     font-style: normal;
     font-size: 120px;
     line-height: 1;
-    color: #F97316;
+    color: #e40914;
     position: absolute;
     top: -9px;
     left: -8px;
@@ -15710,7 +15710,7 @@ form#lostpasswordform .description {
 .bl-blog-detail .text-blog-detail .content-blog .tags .tag-item {
     font-weight: 300;
     font-style: italic;
-    color: #F97316;
+    color: #e40914;
     margin-right: 10px;
 }
 
@@ -15788,7 +15788,7 @@ form#lostpasswordform .description {
     .pic-author
     .socials-author
     a:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .bl-blog-detail .text-blog-detail .content-blog .author-blog .text-author {
@@ -15826,7 +15826,7 @@ form#lostpasswordform .description {
     .text-author
     .name-author
     a:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .bl-blog-detail
@@ -15910,8 +15910,8 @@ form#lostpasswordform .description {
     .navigate-blog
     .navi-item
     .navi-arrow:hover {
-    background: #F97316;
-    border-color: #F97316;
+    background: #e40914;
+    border-color: #e40914;
     color: #fff;
 }
 
@@ -15935,7 +15935,7 @@ form#lostpasswordform .description {
     font-weight: 400;
     font-size: 16px;
     line-height: 1.625;
-    color: #F97316;
+    color: #e40914;
     text-transform: uppercase;
     word-break: break-word;
     margin-bottom: 16px;
@@ -15979,7 +15979,7 @@ form#lostpasswordform .description {
     .navi-text
     .title-navi
     a:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .bl-blog-detail
@@ -16160,7 +16160,7 @@ form#lostpasswordform .description {
     font-weight: 300;
     font-size: 14px;
     line-height: 1.85;
-    color: #F97316;
+    color: #e40914;
     display: block;
     position: absolute;
     top: 0;
@@ -16178,9 +16178,9 @@ form#lostpasswordform .description {
     .author
     .link-reply-edit
     a {
-    color: #F97316;
+    color: #e40914;
     margin-left: 10px;
-    border-bottom: 1px solid #F97316;
+    border-bottom: 1px solid #e40914;
 }
 
 .bl-blog-detail
@@ -16401,7 +16401,7 @@ form#lostpasswordform .description {
     .comment-meta
     .comment-form-email
     input:focus {
-    border-color: #F97316;
+    border-color: #e40914;
 }
 
 .bl-blog-detail
@@ -16446,7 +16446,7 @@ form#lostpasswordform .description {
     .comment-message
     .comment-form-comment
     textarea:focus {
-    border-color: #F97316;
+    border-color: #e40914;
 }
 
 .bl-blog-detail
@@ -16470,7 +16470,7 @@ form#lostpasswordform .description {
     max-width: 100%;
     height: 52px;
     border-radius: 26px;
-    background: #F97316;
+    background: #e40914;
     padding: 0 51px;
     cursor: pointer;
     transition: all 0.2s;
@@ -16561,8 +16561,8 @@ form#lostpasswordform .description {
 }
 
 .related-blog .wrap-element .slide-posts .wrap-arrow-slick .arow-slick:hover {
-    background: #F97316;
-    border-color: #F97316;
+    background: #e40914;
+    border-color: #e40914;
     color: #fff;
 }
 
@@ -16660,7 +16660,7 @@ form#lostpasswordform .description {
     color: #fff;
     text-align: center;
     word-break: break-word;
-    background: #F97316;
+    background: #e40914;
     padding: 2px 11px;
 }
 
@@ -16708,7 +16708,7 @@ form#lostpasswordform .description {
 }
 
 .related-blog .wrap-element .post-item .title a:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .related-blog .wrap-element .post-item .info {
@@ -16994,7 +16994,7 @@ form#lostpasswordform .description {
     .wrap-filter-group
     .filter-tope-group
     .item-tope:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .authors-list
@@ -17020,7 +17020,7 @@ form#lostpasswordform .description {
     display: block;
     width: 100%;
     height: 1px;
-    background: #F97316;
+    background: #e40914;
     position: absolute;
     bottom: 0px;
     left: 0;
@@ -17033,7 +17033,7 @@ form#lostpasswordform .description {
     .wrap-filter-group
     .filter-tope-group
     .item-tope.active {
-    color: #F97316;
+    color: #e40914;
 }
 
 .authors-list
@@ -17133,7 +17133,7 @@ form#lostpasswordform .description {
 }
 
 .authors-list .wrap-element .author-item .text-author .name-author a:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .authors-list .wrap-element .author-item .text-author .info-author {
@@ -17220,7 +17220,7 @@ form#lostpasswordform .description {
     .media-author
     .socials-author
     a:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .bl-author-detail
@@ -17348,7 +17348,7 @@ form#lostpasswordform .description {
     .slide-images
     .wrap-arrow-slick
     .arow-slick:hover {
-    background: #F97316;
+    background: #e40914;
 }
 
 .bl-author-detail
@@ -17531,7 +17531,7 @@ form#lostpasswordform .description {
     .film-info
     .title-film
     a:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .bl-author-detail
@@ -17720,7 +17720,7 @@ form#lostpasswordform .description {
     .wrap-filter-group
     .filter-tope-group
     .item-tope:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .videos-list
@@ -17746,7 +17746,7 @@ form#lostpasswordform .description {
     display: block;
     width: 100%;
     height: 1px;
-    background: #F97316;
+    background: #e40914;
     position: absolute;
     bottom: 0px;
     left: 0;
@@ -17759,7 +17759,7 @@ form#lostpasswordform .description {
     .wrap-filter-group
     .filter-tope-group
     .item-tope.active {
-    color: #F97316;
+    color: #e40914;
 }
 
 .videos-list
@@ -17819,7 +17819,7 @@ form#lostpasswordform .description {
     .heading-element
     .wrap-filter-videos
     .toggle-filter:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .videos-list
@@ -17919,7 +17919,7 @@ form#lostpasswordform .description {
     color: #fff;
     text-align: center;
     word-break: break-word;
-    background: #F97316;
+    background: #e40914;
     padding: 2px 11px;
 }
 
@@ -17970,11 +17970,11 @@ form#lostpasswordform .description {
 }
 
 .videos-list .wrap-element .item-post .text-item .title a:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .videos-list .wrap-element .item-post .text-item .title:hover {
-    color: #F97316;
+    color: #e40914;
 }
 
 .videos-list .wrap-element .item-post .text-item .info {
@@ -18014,7 +18014,7 @@ form#lostpasswordform .description {
     background-size: 30px 34px;
     background-repeat: no-repeat;
     background-position: center center;
-    background-color: #F97316;
+    background-color: #e40914;
     transition: all 0.3s;
 }
 
@@ -18155,7 +18155,7 @@ form#lostpasswordform .description {
     color: #fff;
     text-align: center;
     word-break: break-word;
-    background: #F97316;
+    background: #e40914;
     padding: 2px 11px;
 }
 
@@ -18244,7 +18244,7 @@ form#lostpasswordform .description {
     line-height: 1.5;
     color: #fff;
     text-transform: uppercase;
-    background: #F97316;
+    background: #e40914;
     padding: 0 15px;
     width: 222px;
     max-width: 100%;
@@ -18355,7 +18355,7 @@ form#lostpasswordform .description {
     .slide-images
     .wrap-arrow-slick
     .arow-slick:hover {
-    background: #F97316;
+    background: #e40914;
 }
 
 .bl-video-detail
@@ -18430,7 +18430,7 @@ form#lostpasswordform .description {
     .tag-item {
     font-weight: 400;
     font-style: italic;
-    color: #F97316;
+    color: #e40914;
     margin-right: 10px;
 }
 

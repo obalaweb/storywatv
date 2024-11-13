@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Movie;
 use App\Models\Video;
 use Illuminate\Http\Request;
@@ -12,11 +13,21 @@ class WebController extends Controller
     public function index()
     {
         $videos = Cache::remember('index_videos', 36000, function () {
-            return Video::latest()->where('is_active', true)->where('trending_score', '>', 70)->paginate(8);
+            return Video::latest()->where('status', 'active')->where('is_trending', 1)->take(8)->get();
         });
 
+        $otherVideos = Cache::remember('index_other_videos', 36000, function () {
+            return Video::latest()->where('status', 'active')->where('is_trending', 0)->take(8)->get();
+        });
+        $categories = Cache::remember('index_categories', 36000, function () {
+            return Category::latest()->withCount('videos')->take(6)->get();
+        });
 
-        return view('frontend.index', compact('videos'));
+        $featuredVideo = Cache::remember('featured_video', 36000, function () {
+            return Video::where('is_featured', 1)->first();
+        });
+
+        return view('frontend.index', compact('videos', 'categories', 'otherVideos', 'featuredVideo'));
     }
 
     public function contactUs()
@@ -45,6 +56,17 @@ class WebController extends Controller
     {
 
         return view('movies.show', compact('movie'));
+    }
+
+
+    public function videos()
+    {
+        return view('videos.index');
+    }
+
+    public function showVideo(Video $video)
+    {
+        return view('videos.show', compact('video'));
     }
 
 

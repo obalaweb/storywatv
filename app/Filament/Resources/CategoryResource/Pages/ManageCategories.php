@@ -5,6 +5,7 @@ namespace App\Filament\Resources\CategoryResource\Pages;
 use App\Filament\Resources\CategoryResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ManageRecords;
+use Illuminate\Support\Facades\Cache;
 
 class ManageCategories extends ManageRecords
 {
@@ -16,7 +17,7 @@ class ManageCategories extends ManageRecords
             Actions\CreateAction::make()
                 ->mutateFormDataUsing(function (array $data): array {
                     $data['slug'] = str($data['name'])->slug();
-
+                    Cache::forget('index_categories');
                     return $data;
                 }),
 

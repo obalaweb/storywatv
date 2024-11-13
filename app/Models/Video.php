@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Awcodes\Curator\Models\Media;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Cache;
 
@@ -21,6 +22,7 @@ class Video extends Model
         'status', // Status of the video (e.g., active, inactive)
         'is_trending',
         'trending_score',
+        'is_featured',
         'trending_since',
     ];
 
@@ -38,6 +40,12 @@ class Video extends Model
     public function postBy()
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+
+    public function getPostedOnAttribute()
+    {
+        return Carbon::parse($this->attributes['created_at'])->format('M d, Y');
     }
 
     /**
@@ -92,6 +100,25 @@ class Video extends Model
         static::deleted(function () {
             Cache::forget('index_videos');
         });
+    }
+
+    public function getShortDescriptionAttribute()
+    {
+        $content = $this->attributes['description'];
+
+        // Convert HTML entities like &nbsp; to normal characters
+        $content = html_entity_decode($content);
+
+        if (mb_strlen($content) > 98) {
+            $description = mb_substr($content, 0, 98);
+        } else {
+            $description = $content;
+        }
+
+        // Remove HTML tags
+        $description = strip_tags($description);
+
+        return $description . '...';
     }
 
 }
