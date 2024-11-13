@@ -22,6 +22,9 @@ class EditMyVideo extends EditRecord
         $data['user_id'] = auth()->id();
 
         \Illuminate\Support\Facades\Cache::forget('index_videos');
+        \Illuminate\Support\Facades\Cache::forget('featured_video');
+        \Illuminate\Support\Facades\Cache::forget('index_other_videos');
+
         return $data;
     }
 }

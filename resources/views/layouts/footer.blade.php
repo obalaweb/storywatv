@@ -53,25 +53,27 @@
                             </div>
 
                             <div class="list-posts">
-                                <div class="item">
-                                    <div class="pic">
-                                        <a href="single-blog.html">
-                                            <img src="assets/images/png-post-01.png" alt="IMG">
-                                        </a>
-                                    </div>
-
-                                    <div class="text">
-                                        <h4 class="title">
-                                            <a href="single-blog.html">
-                                                5 Skin Care Rituals You Should Be Doing Before Bed
+                                @foreach (posts() as $post)
+                                    <div class="item">
+                                        <div class="pic">
+                                            <a href="{{ route('blog.show', $post->slug)}}">
+                                                <img src="{{asset('storage/' . $post->cover_photo_path)}}" alt="IMG">
                                             </a>
-                                        </h4>
+                                        </div>
 
-                                        <div class="date">
-                                            August 11, 2018
+                                        <div class="text">
+                                            <h4 class="title">
+                                                <a href="{{ route('blog.show', $post->slug)}}">
+                                                    {{ $post->title }}
+                                                </a>
+                                            </h4>
+
+                                            <div class="date">
+                                                {{ $post->formattedPublishedDate() }}
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -87,10 +89,12 @@
                             </h3>
 
                             <ul class="list-categories">
-                                <li class="cat-item">
-                                    <a href="javascript:;">Fragrances</a>
-                                    <span class="count">15</span>
-                                </li>
+                                @foreach (categories() as $category)
+                                    <li class="cat-item">
+                                        <a href="javascript:;">{{$category->name}}</a>
+                                        <span class="count">{{$category->posts_count}}</span>
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>

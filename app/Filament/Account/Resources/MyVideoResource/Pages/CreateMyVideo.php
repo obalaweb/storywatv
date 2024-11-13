@@ -15,7 +15,10 @@ class CreateMyVideo extends CreateRecord
         $data['user_id'] = auth()->id();
         $data['status'] = 'draft';
         $data['trending_score'] = 0;
+
         \Illuminate\Support\Facades\Cache::forget('index_videos');
+        \Illuminate\Support\Facades\Cache::forget('featured_video');
+        \Illuminate\Support\Facades\Cache::forget('index_other_videos');
 
         return $data;
     }

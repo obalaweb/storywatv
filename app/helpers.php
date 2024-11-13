@@ -1,8 +1,25 @@
 <?php
 
+use Firefly\FilamentBlog\Models\Post;
+use Illuminate\Support\Facades\Cache;
+
 function site_name()
 {
 
+}
+
+function posts()
+{
+    return Cache::remember('posts', 360000, function () {
+        return Post::published()->latest()->take(4)->get();
+    });
+}
+
+function categories()
+{
+    return Cache::remember('categories', 360000, function () {
+        return \Firefly\FilamentBlog\Models\Category::withCount('posts')->take(6)->get();
+    });
 }
 
 if (!function_exists('youtube_embed')) {

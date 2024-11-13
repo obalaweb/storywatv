@@ -211,30 +211,32 @@
                         <div class="grid-posts grid-isotope">
                             <div class="grid-sizer"></div>
 
-                            <div class="grid-item size_2x2">
-                                <x-video-card :video="$featuredVideo" class="feature-item"
-                                    image="assets/images/bg-featurepost-02.jpg">
-                                    <div class="info">
-                                        <span>BY {{ $featuredVideo->postBy->name }}</span>
-                                        <span>{{$featuredVideo->postedOn }}</span>
-                                    </div>
+                            @isset($featuredVideo)
+                                <div class="grid-item size_2x2">
+                                    <x-video-card :video="$featuredVideo" class="feature-item"
+                                        image="assets/images/bg-featurepost-02.jpg">
+                                        <div class="info">
+                                            <span>BY {{ $featuredVideo->postBy->name }}</span>
+                                            <span>{{$featuredVideo->postedOn }}</span>
+                                        </div>
 
-                                    <div class="description">
-                                        {{ $featuredVideo->short_description }}
-                                    </div>
+                                        <div class="description">
+                                            {{ $featuredVideo->short_description }}
+                                        </div>
 
-                                    <a href="{{route('videos.show', $featuredVideo->youtube_id)}}"
-                                        class="btn-readmore btn-small shape-round">
-                                        read more
-                                    </a>
-                                </x-video-card>
-                            </div>
+                                        <a href="{{route('videos.show', $featuredVideo->youtube_id)}}"
+                                            class="btn-readmore btn-small shape-round">
+                                            read more
+                                        </a>
+                                    </x-video-card>
+                                </div>
+                            @endisset
 
-                            <div class="grid-item ">
-                                @foreach ($otherVideos as $video)
+                            @foreach ($otherVideos as $video)
+                                <div class="grid-item">
                                     <x-video-card :video="$video" image="assets/images/post-08.jpg" />
-                                @endforeach
-                            </div>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -262,7 +264,6 @@
                                 It is a long established fact that a reader
                             </div>
                         </div>
-
                         <div class="list-posts">
                             <div class="slide-posts js-call-slick-col" data-numofshow="1" data-numofscroll="1"
                                 data-loopslide="1" data-autoscroll="0" data-speedauto="6000"
@@ -276,100 +277,45 @@
                                         <i class="ion ion-ios-arrow-right"></i>
                                     </div>
                                 </div>
-
                                 <div class="slide-slick">
-                                    <div class="item-slick">
-                                        <div class="post-item">
-                                            <div class="row">
-                                                <div class="col-lg-6">
-                                                    <div class="feature-item">
-                                                        <a href="single-blog.html"><img
-                                                                src="assets/images/bg-featurepost-03.jpg" alt="IMG"></a>
+                                    @foreach ($posts as $post)
 
-                                                        <div class="overlay"></div>
+                                        <div class="item-slick">
+                                            <div class="post-item">
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <div class="feature-item">
+                                                            <a href="single-blog.html">
+                                                                <img src="assets/images/bg-featurepost-03.jpg" alt="IMG">
+                                                            </a>
 
-                                                        <div class="content">
-                                                            <h4 class="title">
-                                                                <a href="single-blog.html">
-                                                                    6 Products Designed to Make Trend Ombré Makeup
-                                                                    Simple
-                                                                </a>
-                                                            </h4>
+                                                            <div class="overlay"></div>
 
-                                                            <div class="info">
-                                                                <span class="item-info">BY <a
-                                                                        href="javascript:;">POLLY</a></span>
-                                                                <span class="item-info">MAY 1, 2018</span>
-                                                                <span class="item-info">Animation</span>
+                                                            <div class="content">
+                                                                <h4 class="title">
+                                                                    <a href="single-blog.html">
+                                                                        6 Products Designed to Make Trend Ombré Makeup
+                                                                        Simple
+                                                                    </a>
+                                                                </h4>
+
+                                                                <div class="info">
+                                                                    <span class="item-info">BY <a
+                                                                            href="javascript:;">POLLY</a></span>
+                                                                    <span class="item-info">MAY 1, 2018</span>
+                                                                    <span class="item-info">Animation</span>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
 
-                                                <div class="col-lg-6">
-                                                    <x-post-card />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- <div class="item-slick">
-                                        <div class="post-item">
-                                            <div class="row">
-                                                <div class="col-lg-6">
-                                                    <div class="feature-item">
-                                                        <a href="single-blog.html"><img
-                                                                src="assets/images/bg-featurepost-03.jpg" alt="IMG"></a>
-
-                                                        <div class="overlay"></div>
-
-                                                        <div class="content">
-                                                            <h4 class="title">
-                                                                <a href="single-blog.html">
-                                                                    6 Products Designed to Make Trend Ombré Makeup
-                                                                    Simple
-                                                                </a>
-                                                            </h4>
-
-                                                            <div class="info">
-                                                                <span class="item-info">BY <a
-                                                                        href="javascript:;">POLLY</a></span>
-                                                                <span class="item-info">MAY 1, 2018</span>
-                                                                <span class="item-info">Animation</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-lg-6">
-                                                    <div class="item">
-                                                        <div class="pic">
-                                                            <a href="single-blog.html"><img
-                                                                    src="assets/images/post-14.jpg" alt="IMG"></a>
-                                                        </div>
-
-                                                        <div class="text">
-                                                            <div class="info">
-                                                                MAY 1, 2018
-                                                            </div>
-
-                                                            <h4 class="title">
-                                                                <a href="single-blog.html">
-                                                                    The Dark Tower Trailer
-                                                                </a>
-                                                            </h4>
-
-                                                            <div class="description">
-                                                                To start the day in the best way, enjoythe extraordinary
-                                                                buffetbreakfast in the our courtyard caressed at auctor.
-                                                            </div>
-                                                        </div>
+                                                    <div class="col-lg-6">
+                                                        <x-post-card />
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div> -->
-
+                                    @endforeach
                                 </div>
                             </div>
                         </div>

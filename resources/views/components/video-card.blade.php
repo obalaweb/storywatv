@@ -19,7 +19,7 @@
 
     <div class="content">
         <h4 class="title">
-            <a href="https://www.youtube.com/watch?v=NEqtQYxzQaE" class="btn-play popup-youtube">
+            <a href="{{$video ? $video->youtube_url : ''}}" class="btn-play popup-youtube">
             </a>
 
         </h4>

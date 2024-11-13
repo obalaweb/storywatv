@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Movie;
 use App\Models\Video;
+use Firefly\FilamentBlog\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 
@@ -17,7 +18,7 @@ class WebController extends Controller
         });
 
         $otherVideos = Cache::remember('index_other_videos', 36000, function () {
-            return Video::latest()->where('status', 'active')->where('is_trending', 0)->take(8)->get();
+            return Video::latest()->where('status', 'active')->where('is_trending', 0)->take(6)->get();
         });
         $categories = Cache::remember('index_categories', 36000, function () {
             return Category::latest()->withCount('videos')->take(6)->get();
@@ -27,7 +28,11 @@ class WebController extends Controller
             return Video::where('is_featured', 1)->first();
         });
 
-        return view('frontend.index', compact('videos', 'categories', 'otherVideos', 'featuredVideo'));
+        $posts = Cache::remember('index_posts', 36000, function () {
+            return Post::latest()->take(9)->get();
+        });
+
+        return view('frontend.index', compact('videos', 'categories', 'otherVideos', 'featuredVideo', 'posts'));
     }
 
     public function contactUs()
