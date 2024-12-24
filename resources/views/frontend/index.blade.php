@@ -12,11 +12,13 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="video">
-                                        <iframe width="100%" height="580"
-                                            src="https://www.youtube.com/embed/aW-8jW6_xGE?si=NQMIrl7MHXhZa_7O"
-                                            frameborder="0" allow="autoplay; encrypted-media" showinfo="0" rel="0"
-                                            allowfullscreen>
-                                        </iframe>
+                                        <div id="play"></div>
+                                        {{-- <iframe width="100%" height="580"
+                                            src="https://www.youtube.com/embed/aW-8jW6_xGE?si=NQMIrl7MHXhZa_7O?autoplay=1"
+                                            showinfo="0" rel="0" allowfullscreen frameborder="0"
+                                            allow="autoplay; encrypted-media" allowfullscreen>
+                                            >
+                                        </iframe> --}}
                                     </div>
                                 </div>
                             </div>
@@ -169,41 +171,13 @@
 
                             <div class="categories">
                                 <ul>
-                                    <li class="current-cat">
-                                        <a href="javascript:;">
-                                            CINEMA
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a href="javascript:;">
-                                            MUSIC
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a href="javascript:;">
-                                            SPORT
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a href="javascript:;">
-                                            TECH
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a href="javascript:;">
-                                            FASHION
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a href="javascript:;">
-                                            ANIMATION
-                                        </a>
-                                    </li>
+                                    @foreach ($categories as $category)
+                                        <li class="current-cat">
+                                            <a href="javascript:;">
+                                                {{ str($category->name)->upper() }}
+                                            </a>
+                                        </li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
@@ -217,14 +191,14 @@
                                         image="assets/images/bg-featurepost-02.jpg">
                                         <div class="info">
                                             <span>BY {{ $featuredVideo->postBy->name }}</span>
-                                            <span>{{$featuredVideo->postedOn }}</span>
+                                            <span>{{ $featuredVideo->postedOn }}</span>
                                         </div>
 
                                         <div class="description">
                                             {{ $featuredVideo->short_description }}
                                         </div>
 
-                                        <a href="{{route('videos.show', $featuredVideo->youtube_id)}}"
+                                        <a href="{{ route('videos.show', $featuredVideo->youtube_id) }}"
                                             class="btn-readmore btn-small shape-round">
                                             read more
                                         </a>
@@ -278,15 +252,16 @@
                                     </div>
                                 </div>
                                 <div class="slide-slick">
-                                    @foreach ($posts as $post)
 
+                                    @foreach ($posts as $post)
                                         <div class="item-slick">
                                             <div class="post-item">
                                                 <div class="row">
                                                     <div class="col-lg-6">
                                                         <div class="feature-item">
                                                             <a href="single-blog.html">
-                                                                <img src="assets/images/bg-featurepost-03.jpg" alt="IMG">
+                                                                <img src="assets/images/bg-featurepost-03.jpg"
+                                                                    alt="IMG">
                                                             </a>
 
                                                             <div class="overlay"></div>
