@@ -4,7 +4,7 @@
             <div class="thim-3-col">
                 <aside class="widget widget_thim_layout_builder">
                     <div class="wpb_single_image" style="font-size: 36px; font-weight: bolder;">
-                        <span style="color:white; size:24px">Story</span><span style="color:#F97316">wa</span>
+                        <span style="color:white; size:24px">Story</span><span style="color:#E40914">wa</span>
                     </div>
 
                     <div class="wpb_text_column">
@@ -56,14 +56,15 @@
                                 @foreach (posts() as $post)
                                     <div class="item">
                                         <div class="pic">
-                                            <a href="{{ route('blog.show', $post->slug)}}">
-                                                <img src="{{asset('storage/' . $post->cover_photo_path)}}" alt="IMG">
+                                            <a href="{{ route('blog.show', $post->slug) }}">
+                                                <img src="{{ asset('storage/' . $post->cover_photo_path) }}"
+                                                    alt="IMG">
                                             </a>
                                         </div>
 
                                         <div class="text">
                                             <h4 class="title">
-                                                <a href="{{ route('blog.show', $post->slug)}}">
+                                                <a href="{{ route('blog.show', $post->slug) }}">
                                                     {{ $post->title }}
                                                 </a>
                                             </h4>
@@ -91,8 +92,8 @@
                             <ul class="list-categories">
                                 @foreach (categories() as $category)
                                     <li class="cat-item">
-                                        <a href="javascript:;">{{$category->name}}</a>
-                                        <span class="count">{{$category->posts_count}}</span>
+                                        <a href="javascript:;">{{ $category->name }}</a>
+                                        <span class="count">{{ $category->posts_count }}</span>
                                     </li>
                                 @endforeach
                             </ul>

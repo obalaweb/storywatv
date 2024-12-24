@@ -7,17 +7,17 @@
                     <div class="header-logo" style="font-size: 36px; font-weight: bolder;">
                         <a href="/" class="logo">
                             {{-- <img src="assets/images/logo-header-05.png" alt="IMG"> --}}
-                            <span style="color:white; size:24px">Story</span><span style="color:#F97316">wa</span>
+                            <span style="color:white; size:24px">Story</span><span style="color:#E40914">wa</span>
                         </a>
 
                         <a href="/" class="mobile-logo">
                             {{-- <img src="assets/images/logo-header-05.png" alt="IMG"> --}}
-                            <span style="color:white; size:24px">Story</span><span style="color:#F97316">wa</span>
+                            <span style="color:white; size:24px">Story</span><span style="color:#E40914">wa</span>
                         </a>
 
                         <a href="/" class="sticky-logo">
                             {{-- <img src="assets/images/logo-header-05.png" alt="IMG"> --}}
-                            <span style="color:white; size:24px">Story</span><span style="color:#F97316">wa</span>
+                            <span style="color:white; size:24px">Story</span><span style="color:#E40914">wa</span>
                         </a>
                     </div>
 
@@ -100,7 +100,7 @@
                             </li>
 
                             <li>
-                                <a href="{{route('movies')}}">
+                                <a href="{{ route('movies') }}">
                                     Movies
                                 </a>
                             </li>
@@ -112,13 +112,13 @@
 
                                 <ul class="sub-menu">
                                     <li>
-                                        <a href="{{route('aboutUs')}}">
+                                        <a href="{{ route('aboutUs') }}">
                                             About us
                                         </a>
                                     </li>
 
                                     <li>
-                                        <a href="{{route('submitVideo')}}">
+                                        <a href="{{ route('submitVideo') }}">
                                             Submit Video
                                         </a>
                                     </li>
@@ -126,7 +126,7 @@
                             </li>
 
                             <li>
-                                <a href="{{route('blog.index')}}">
+                                <a href="{{ route('blog.index') }}">
                                     Blog
                                 </a>
                             </li>
@@ -141,7 +141,7 @@
 
                     <div class="menu-right">
                         <div class="bp-element bp-element-button">
-                            <a href="{{route('submitVideo')}}" class="btn">
+                            <a href="{{ route('submitVideo') }}" class="btn">
                                 <i class="ion ion-upload"></i>
                                 SUBMIT VIDEO
                             </a>
@@ -184,8 +184,8 @@
                                                         </p>
 
                                                         <p class="login-email">
-                                                            <input type="email" name="user_email" placeholder="Email"
-                                                                class="input">
+                                                            <input type="email" name="user_email"
+                                                                placeholder="Email" class="input">
                                                         </p>
 
                                                         <p class="text-mail">
@@ -196,7 +196,8 @@
                                                             <input type="submit" name="wp-submit-register"
                                                                 class="button button-primary button-large"
                                                                 value="Register" />
-                                                            <input type="hidden" name="redirect_to" value="" />
+                                                            <input type="hidden" name="redirect_to"
+                                                                value="" />
                                                         </p>
                                                     </form>
                                                 </div>
@@ -226,12 +227,13 @@
 
                                                     <form id="loginform">
                                                         <p class="login-username">
-                                                            <input type="text" placeholder="Username" class="input">
+                                                            <input type="text" placeholder="Username"
+                                                                class="input">
                                                         </p>
 
                                                         <p class="login-email">
-                                                            <input type="email" name="user_email" placeholder="Email"
-                                                                class="input">
+                                                            <input type="email" name="user_email"
+                                                                placeholder="Email" class="input">
                                                         </p>
 
                                                         <p class="login-remember">
@@ -243,7 +245,8 @@
                                                             <input type="submit" name="wp-submit-register"
                                                                 class="button button-primary button-large"
                                                                 value="Register" />
-                                                            <input type="hidden" name="redirect_to" value="" />
+                                                            <input type="hidden" name="redirect_to"
+                                                                value="" />
                                                         </p>
 
                                                         <p class="link-bottom"><a href="#losspw" class="display-box"
@@ -277,7 +280,8 @@
                                                 </h3>
 
                                                 <div class="form-row">
-                                                    <form name="lostpasswordform" id="lostpasswordform" method="post">
+                                                    <form name="lostpasswordform" id="lostpasswordform"
+                                                        method="post">
                                                         <p class="description"> Please enter your username or email
                                                             address. You will receive a link to create a new password
                                                             via email.
@@ -329,7 +333,7 @@
             </li>
 
             <li>
-                <a href="{{route('movies')}}">
+                <a href="{{ route('movies') }}">
                     Movie
                 </a>
             </li>
@@ -341,13 +345,13 @@
 
                 <ul class="sub-menu">
                     <li>
-                        <a href="{{route('aboutUs')}}">
+                        <a href="{{ route('aboutUs') }}">
                             About us
                         </a>
                     </li>
 
                     <li>
-                        <a href="{{route('submitVideo')}}">
+                        <a href="{{ route('submitVideo') }}">
                             Submit Video
                         </a>
                     </li>
@@ -355,13 +359,13 @@
             </li>
 
             <li>
-                <a href="{{route('blog.index')}}">
+                <a href="{{ route('blog.index') }}">
                     Blog
                 </a>
             </li>
 
             <li>
-                <a href="{{route('contactUs') }}">
+                <a href="{{ route('contactUs') }}">
                     Contact
                 </a>
             </li>
@@ -372,7 +376,7 @@
                 <div class="menu-useful-links-container">
                     <ul class="menu">
                         <li class="menu-item">
-                            <a href="{{route('aboutUs')}}">CLIENTS</a>
+                            <a href="{{ route('aboutUs') }}">CLIENTS</a>
                         </li>
 
                         <li class="menu-item menu-item-has-children">
@@ -386,7 +390,7 @@
                                 </li>
 
                                 <li class="menu-item">
-                                    <a href="{{route('contactUs') }}">
+                                    <a href="{{ route('contactUs') }}">
                                         Menu item
                                     </a>
                                 </li>
@@ -394,7 +398,7 @@
                         </li>
 
                         <li class="menu-item">
-                            <a href="{{route('contactUs')}}">CONTACT US</a>
+                            <a href="{{ route('contactUs') }}">CONTACT US</a>
                         </li>
                     </ul>
                 </div>
@@ -403,7 +407,7 @@
             <aside class="widget widget_text">
                 <div class="textwidget">
                     <div class="copyright-text">
-                        Copyright 2024 <span style="color:white;">Story</span><span style="color:#F97316;">Wa</span>
+                        Copyright 2024 <span style="color:white;">Story</span><span style="color:#E40914;">Wa</span>
                         Website
                         by <a href="https://codprez.com">Codprez.</a>
                     </div>

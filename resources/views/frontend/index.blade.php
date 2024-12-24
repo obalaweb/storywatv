@@ -44,7 +44,7 @@
                                             Galindo you worlds north and south of the border oldcollide.
                                         </div>
 
-                                        <a href="single-video.html" class="btn-readmore btn-normal shape-round">
+                                        <a href="#" class="btn-readmore btn-normal shape-round">
                                             Read More
                                         </a>
                                     </div>
@@ -69,7 +69,7 @@
                                 popular videos
                             </h3>
 
-                            <a href="list-videos-2.html" class="link">
+                            <a href="#" class="link">
                                 See all news
                             </a>
                         </div>
@@ -259,7 +259,7 @@
                                                 <div class="row">
                                                     <div class="col-lg-6">
                                                         <div class="feature-item">
-                                                            <a href="single-blog.html">
+                                                            <a #">
                                                                 <img src="assets/images/bg-featurepost-03.jpg"
                                                                     alt="IMG">
                                                             </a>
@@ -268,7 +268,7 @@
 
                                                             <div class="content">
                                                                 <h4 class="title">
-                                                                    <a href="single-blog.html">
+                                                                    <a #">
                                                                         6 Products Designed to Make Trend Ombré Makeup
                                                                         Simple
                                                                     </a>
