@@ -1,0 +1,18 @@
+{
+  "resources/css/app.css": {
+    "file": "assets/app-Bey4-0T8.css",
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/css/filament/admin/theme.css": {
+    "file": "assets/theme-DdMgSle8.css",
+    "src": "resources/css/filament/admin/theme.css",
+    "isEntry": true
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-BjCBnTiP.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  }
+}
