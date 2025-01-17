@@ -47,7 +47,8 @@ class WebController extends Controller
 
     public function blog()
     {
-        return view('blog.index');
+        $posts = Post::latest()->paginate(4);
+        return view('blog.index', compact('posts'));
     }
 
 
@@ -59,7 +60,6 @@ class WebController extends Controller
 
     public function showMovie(Movie $movie)
     {
-
         return view('movies.show', compact('movie'));
     }
 
@@ -71,7 +71,10 @@ class WebController extends Controller
 
     public function showVideo(Video $video)
     {
-        return view('videos.show', compact('video'));
+        $nextVideo = $video->nextVideo();
+        $previousVideo = $video->previousVideo();
+        $relatedVideos = Video::where('category_id', $video->category_id)->where('id', '!=', $video->id)->take(6)->get();
+        return view('videos.show', compact('video', 'previousVideo', 'nextVideo', 'relatedVideos'));
     }
 
 

@@ -16,6 +16,7 @@ use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
@@ -84,6 +85,8 @@ class VideoResource extends Resource
                                     ->minValue(1)
                                     ->maxValue(100),
                                 DateTimePicker::make('trending_since')->hidden(class_exists(EditVideo::class)),
+                                TagsInput::make('tags')
+                                    ->separator(',')->columnSpanFull(),
                                 Toggle::make('is_featured')->default(false),
 
                             ])

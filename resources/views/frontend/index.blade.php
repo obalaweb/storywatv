@@ -13,12 +13,7 @@
                                 <div class="col-lg-12">
                                     <div class="video">
                                         <div id="play"></div>
-                                        {{-- <iframe width="100%" height="580"
-                                            src="https://www.youtube.com/embed/aW-8jW6_xGE?si=NQMIrl7MHXhZa_7O?autoplay=1"
-                                            showinfo="0" rel="0" allowfullscreen frameborder="0"
-                                            allow="autoplay; encrypted-media" allowfullscreen>
-                                            >
-                                        </iframe> --}}
+                                        <span id="videoId" class="d-none">{{ $featuredVideo->youtube_id }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -36,15 +31,15 @@
                                     <div class="text">
                                         <h1 class="title">
                                             <a href="#" style="color:white; font-size: 20px;">
-                                                MTV Game Awards GraphicPackage The Best Of year 2018
+                                                {{ $featuredVideo->title }}
                                             </a>
                                         </h1>
                                         <div class="description">
-                                            S1 E2 Escorpión/DzecThe one Mayans seek answers from a local crew as the
-                                            Galindo you worlds north and south of the border oldcollide.
+                                            {{ $featuredVideo->description }}
                                         </div>
 
-                                        <a href="#" class="btn-readmore btn-normal shape-round">
+                                        <a href="{{ route('videos.show', $featuredVideo->youtube_id) }}"
+                                            class="btn-readmore btn-normal shape-round">
                                             Read More
                                         </a>
                                     </div>
@@ -301,4 +296,35 @@
         </div>
         <!-- end News feed home-1 -->
     </div>
+    @section('scripts')
+        <script src="https://www.youtube.com/iframe_api"></script>
+        <script>
+            // Load the YouTube IFrame Player API asynchronously
+            const tag = document.createElement('script');
+            const videoId = document.getElementById('videoId').textContent;
+
+
+            tag.src = "https://www.youtube.com/iframe_api";
+            const firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+            // This function is called by the YouTube IFrame Player API
+            function onYouTubeIframeAPIReady() {
+                new YT.Player('play', { // Use the correct ID of the container
+                    videoId: videoId, // Replace with your video ID
+                    width: '100%', // Set the desired width
+                    height: '580', // Set the desired height
+                    frameborder: '0',
+                    playerVars: {
+                        autoplay: 1,
+                        mute: 1, // Ensures autoplay works on mobile
+                        modestbranding: 1 // Optional, removes YouTube logo
+                    },
+                    events: {
+                        onReady: (event) => event.target.playVideo()
+                    }
+                });
+            }
+        </script>
+    @endsection
 </x-guest-layout>

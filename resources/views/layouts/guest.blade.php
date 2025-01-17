@@ -54,32 +54,7 @@
     <div id="back-to-top" class="btn-back-to-top">
         <i class="ion ion-ios-arrow-thin-up"></i>
     </div>
-    <script src="https://www.youtube.com/iframe_api"></script>
-    <script>
-        // Load the YouTube IFrame Player API asynchronously
-        const tag = document.createElement('script');
-        tag.src = "https://www.youtube.com/iframe_api";
-        const firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-        // This function is called by the YouTube IFrame Player API
-        function onYouTubeIframeAPIReady() {
-            new YT.Player('play', { // Use the correct ID of the container
-                videoId: 'aW-8jW6_xGE', // Replace with your video ID
-                width: '100%', // Set the desired width
-                height: '580', // Set the desired height
-                frameborder: '0',
-                playerVars: {
-                    autoplay: 1,
-                    mute: 1, // Ensures autoplay works on mobile
-                    modestbranding: 1 // Optional, removes YouTube logo
-                },
-                events: {
-                    onReady: (event) => event.target.playVideo()
-                }
-            });
-        }
-    </script>
 
 </body>
 

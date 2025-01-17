@@ -34,6 +34,23 @@ class Video extends Model
         return $this->belongsTo(Category::class);
     }
 
+
+    /**
+     * Returns the next video
+     */
+    public function nextVideo()
+    {
+        return $this->where('id', '>', $this->id)->where('status', 'active')->first();
+    }
+
+    /**
+     * Returns the previous video
+     */
+    public function previousVideo()
+    {
+        return $this->where('id', '<', $this->id)->where('status', 'active')->orderBy('id', 'desc')->first();
+    }
+
     /**
      * Get the user that posted the video.
      */
