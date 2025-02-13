@@ -20,6 +20,8 @@ Route::get('movies/{movie:slug}', [WebController::class, 'showMovie'])->name('sh
 
 
 
+Route::get('play-next', [WebController::class, 'playNext'])->name('PlayNext');
+
 
 
 

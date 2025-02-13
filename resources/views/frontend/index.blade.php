@@ -35,7 +35,7 @@
                                             </a>
                                         </h1>
                                         <div class="description">
-                                            {{ $featuredVideo->description }}
+                                            {{ $featuredVideo->short_description }}
                                         </div>
 
                                         <a href="{{ route('videos.show', $featuredVideo->youtube_id) }}"
@@ -321,10 +321,22 @@
                         modestbranding: 1 // Optional, removes YouTube logo
                     },
                     events: {
-                        onReady: (event) => event.target.playVideo()
-                    }
+                        onReady: (event) => event.target.playVideo(),
+                        onended: () => playNextVideo()
+                    },
+
                 });
             }
+
+
+            const playNextVideo = () => {
+                console.log('video done');
+
+                const response = fetch("/play-next");
+
+                console.log("response: " + response)
+
+            };
         </script>
     @endsection
 </x-guest-layout>

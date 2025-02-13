@@ -9,8 +9,7 @@
 
                     <div class="wpb_text_column">
                         <p>
-                            Lommodo ligula eget dolor. Aenean massa.Cum sociis que penatibus et magnis dis parturient
-                            montes lorem, nascetur ridiculusmus. Donec quam felis, ultricies nec massa.Cum sociis ...
+                            {{-- about section --}}
                         </p>
                     </div>
 

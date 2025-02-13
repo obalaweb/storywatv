@@ -24,9 +24,7 @@ class WebController extends Controller
             return Category::latest()->withCount('videos')->take(6)->get();
         });
 
-        $featuredVideo = Cache::remember('featured_video', 36000, function () {
-            return Video::where('is_featured', 1)->first();
-        });
+        $featuredVideo = $this->nextVideo();
 
         $posts = Cache::remember('index_posts', 36000, function () {
             return Post::latest()->take(9)->get();
@@ -81,5 +79,29 @@ class WebController extends Controller
     public function submitVideo()
     {
         return view('frontend.submitVideo');
+    }
+
+    public function playNext()
+    {
+        $video = cache()->get('featuredVideo');
+        cache()->forget('featuredVideo');
+
+        $this->nextVideo($video);
+    }
+
+    private function nextVideo($oldVideo = null)
+    {
+        $videos = cache()->remember('videos', 3600, function () use ($oldVideo) {
+            return Video::where('is_featured', 1)->get();
+        });
+
+
+        $video = cache()->remember('featuredVideo', 3600, function () use ($oldVideo, $videos) {
+            return isset($oldVideo) ? collect($videos)
+                ->where('id', $oldVideo->id) : collect($videos)->first();
+        });
+
+
+        return $video;
     }
 }
