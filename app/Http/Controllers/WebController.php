@@ -30,6 +30,7 @@ class WebController extends Controller
             return Post::latest()->take(9)->get();
         });
 
+
         return view('frontend.index', compact('videos', 'categories', 'otherVideos', 'featuredVideo', 'posts'));
     }
 
@@ -81,27 +82,56 @@ class WebController extends Controller
         return view('frontend.submitVideo');
     }
 
+
     public function playNext()
     {
         $video = cache()->get('featuredVideo');
         cache()->forget('featuredVideo');
 
-        $this->nextVideo($video);
+        $nextVideo = $this->nextVideo($video);
+
+        // Return a JSON response with the video ID.
+        return response()->json(['videoId' => $nextVideo->youtube_id]);
     }
 
     private function nextVideo($oldVideo = null)
     {
-        $videos = cache()->remember('videos', 3600, function () use ($oldVideo) {
+        // Retrieve the list of featured videos from cache (or database)
+        $videos = cache()->remember('videos', 3600, function () {
             return Video::where('is_featured', 1)->get();
         });
 
+        $videos = collect($videos);
+        $videosCount = $videos->count();
 
-        $video = cache()->remember('featuredVideo', 3600, function () use ($oldVideo, $videos) {
-            return isset($oldVideo) ? collect($videos)
-                ->where('id', $oldVideo->id) : collect($videos)->first();
-        });
+        // If there are no videos, you might want to handle this scenario separately.
+        if ($videosCount === 0) {
+            // Optionally, return null or throw an exception
+            return null;
+        }
 
+        if ($oldVideo) {
+            // Find the index of the current video.
+            $currentIndex = $videos->search(fn($v) => $v->id === $oldVideo->id);
 
-        return $video;
+            // If for any reason the old video is not found, start from the beginning.
+            if ($currentIndex === false) {
+                $currentIndex = 0;
+            }
+
+            // Calculate next index using modulo to loop back to the beginning.
+            $nextIndex = ($currentIndex + 1) % $videosCount;
+            $nextVideo = $videos->get($nextIndex);
+        } else {
+            // If no old video provided, start with the first video.
+            $nextVideo = $videos->first();
+
+        }
+
+        // Update the cache with the selected video.
+        cache()->put('featuredVideo', $nextVideo, 3600);
+
+        return $nextVideo;
     }
+
 }

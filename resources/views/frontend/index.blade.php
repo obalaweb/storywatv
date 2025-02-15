@@ -299,44 +299,60 @@
     @section('scripts')
         <script src="https://www.youtube.com/iframe_api"></script>
         <script>
+            let player;
+
             // Load the YouTube IFrame Player API asynchronously
             const tag = document.createElement('script');
-            const videoId = document.getElementById('videoId').textContent;
-
-
             tag.src = "https://www.youtube.com/iframe_api";
             const firstScriptTag = document.getElementsByTagName('script')[0];
             firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-            // This function is called by the YouTube IFrame Player API
             function onYouTubeIframeAPIReady() {
-                new YT.Player('play', { // Use the correct ID of the container
-                    videoId: videoId, // Replace with your video ID
-                    width: '100%', // Set the desired width
-                    height: '580', // Set the desired height
-                    frameborder: '0',
+                const videoId = document.getElementById('videoId').textContent;
+
+                player = new YT.Player('play', {
+                    videoId: videoId, // Initial video ID
+                    width: '100%',
+                    height: '580',
                     playerVars: {
                         autoplay: 1,
                         mute: 1, // Ensures autoplay works on mobile
-                        modestbranding: 1 // Optional, removes YouTube logo
+                        modestbranding: 1
                     },
                     events: {
                         onReady: (event) => event.target.playVideo(),
-                        onended: () => playNextVideo()
-                    },
-
+                        onStateChange: onPlayerStateChange
+                    }
                 });
             }
 
+            function onPlayerStateChange(event) {
+                if (event.data === YT.PlayerState.ENDED) {
+                    playNextVideo();
+                }
+            }
 
-            const playNextVideo = () => {
-                console.log('video done');
+            async function playNextVideo() {
+                try {
+                    const response = await fetch("/play-next");
 
-                const response = fetch("/play-next");
+                    console.log(response);
 
-                console.log("response: " + response)
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    const data = await response.json();
 
-            };
+                    if (data.videoId) {
+                        player.loadVideoById(data.videoId);
+                    } else {
+                        console.error("No next video ID received.");
+                    }
+                } catch (error) {
+                    console.error("Error fetching next video:", error);
+                }
+            }
         </script>
     @endsection
+
 </x-guest-layout>
