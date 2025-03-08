@@ -1,90 +1,94 @@
 <x-guest-layout>
     <div id="main-content">
         <div class="content-area">
-            <x-banner title="Blog" />
+            <!-- Banner -->
+            <x-banner title="Blog" subtitle="Latest News & Updates" />
 
-            <div class="site-content sidebar-right layout-1">
+            <!-- Main Content -->
+            <div class="site-content sidebar-right layout-1 py-5">
                 <div class="container">
                     <div class="row">
-                        <main class="site-main col-lg-9">
+                        <main class="site-main col-lg-9 col-md-8 col-sm-12">
                             <div class="wrap-main-content">
-                                <!-- Block list blogs -->
-                                @foreach ($posts as $post)
-                                    <div class="blog-list thim-1-col vblog-layout-1">
+                                <!-- Blog List -->
+                                @forelse($posts as $post)
+                                    <div class="blog-list thim-1-col vblog-layout-1 mb-4">
                                         <article class="item-blog image-item">
                                             <div class="media-item">
                                                 <div class="pic">
                                                     <a href="{{ route('blog.show', $post->slug) }}">
-                                                        <img src="assets/images/blog-01.jpg" alt="IMG">
+                                                        <img src="{{ $post->feature_image ?? asset('assets/images/blog-01.jpg') }}"
+                                                            alt="{{ $post->title }}" class="img-fluid">
                                                     </a>
                                                 </div>
-
                                                 <div class="date">
-                                                    <span class="number">08</span> AUG, 2018
+                                                    <span class="number">{{ $post->published_at->format('d') }}</span>
+                                                    {{ $post->published_at->format('M, Y') }}
                                                 </div>
                                             </div>
 
                                             <div class="text-item">
                                                 <h4 class="title">
-                                                    <a href="{{ route('blog.show', $post->slug) }}" class="text-white">
-                                                        {{ $post->title }}
-                                                    </a>
+                                                    <a
+                                                        href="{{ route('blog.show', $post->slug) }}">{{ $post->title }}</a>
                                                 </h4>
 
                                                 <div class="info">
                                                     <span class="info-item">
                                                         <i class="ion ion-android-person"></i>
-                                                        By <a href="javascript:;">Thomas Doe</a>
+                                                        By <a href="#">
+                                                            {{ $post->author->name ?? 'Thomas Doe' }}
+                                                        </a>
                                                     </span>
 
                                                     <span class="info-item">
                                                         <i class="ion ion-ios-pricetags-outline"></i>
-                                                        <a href="javascript:;">Academics,</a>
-                                                        <a href="javascript:;">Design</a>
+                                                        @foreach ($post->tags as $tag)
+                                                            <a
+                                                                href="{{ route('blog.tag', $tag) }}">{{ $tag }}</a>{{ !$loop->last ? ',' : '' }}
+                                                        @endforeach
                                                     </span>
 
                                                     <span class="info-item">
                                                         <i class="ion ion-android-chat"></i>
-                                                        (0)
-                                                        Comment
+                                                        ({{ $post->comments_count ?? 0 }})
+                                                        Comment{{ ($post->comments_count ?? 0) !== 1 ? 's' : '' }}
                                                     </span>
                                                 </div>
 
                                                 <div class="content">
-                                                    It is a long established fact that a reader will be distracted by
-                                                    the
-                                                    readable content of a page when looking at its layout. The point of
-                                                    using Lorem Ipsum is that it has a more-or-less normal distribution
-                                                    of
-                                                    letters, as opposed to using 'Content here, content here',
+                                                    {{ Str::limit(strip_tags($post->content), 150) }}
                                                 </div>
 
                                                 <a href="{{ route('blog.show', $post->slug) }}"
                                                     class="btn-learnmore btn-small shape-round">
-                                                    read more
+                                                    Read More
                                                 </a>
                                             </div>
                                         </article>
                                     </div>
-                                @endforeach
-                                <!-- end Block list blogs -->
+                                @empty
+                                    <div class="text-center py-5">
+                                        <p class="text-muted">No posts found.</p>
+                                    </div>
+                                @endforelse
 
-                                <ul class="loop-pagination">
-                                    <li>
-                                        <a href="javascript:;" class="page-numbers">
-                                            1
-                                        </a>
-                                    </li>
-                                </ul>
+                                <!-- Pagination -->
+                                @if ($posts->hasPages())
+                                    <div class="loop-pagination mt-4">
+                                        {{ $posts->links('vendor.pagination.bootstrap-5') }}
+                                    </div>
+                                @endif
                             </div>
                         </main>
 
-                        <div class="widget-area col-sm-9 col-md-8 col-lg-3 sticky-sidebar">
+                        <!-- Sidebar -->
+                        <aside class="widget-area col-lg-3 col-md-4 col-sm-12 sticky-sidebar">
                             <livewire:sidebar />
-                        </div>
+                        </aside>
                     </div>
                 </div>
             </div>
         </div>
-
+    </div>
 </x-guest-layout>

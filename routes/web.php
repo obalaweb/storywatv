@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WebController;
 use Illuminate\Support\Facades\Route;
@@ -7,9 +8,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [WebController::class, 'index'])->name('index');
 Route::get('/contact-us', [WebController::class, 'contactUs'])->name('contactUs');
 Route::get('submit-video', [WebController::class, 'submitVideo'])->name('submitVideo');
-Route::get('blog', [WebController::class, 'blog'])->name('blog.index');
-Route::get('blog/{blog}', [WebController::class, 'blogDetail'])
-    ->name('blog.show');
+
 Route::get('about-us', [WebController::class, 'aboutUs'])->name('aboutUs');
 
 Route::get('videos', [WebController::class, 'videos'])->name('videos');
@@ -18,6 +17,15 @@ Route::get('videos/{video:youtube_id}', [WebController::class, 'showVideo'])->na
 Route::get('movies', [WebController::class, 'movies'])->name('movies');
 Route::get('movies/{movie:slug}', [WebController::class, 'showMovie'])->name('showMovie');
 
+Route::
+    prefix('blog')->group(function () {
+        Route::get('/', [BlogController::class, 'index'])->name('blog.index');
+        Route::get('/{post:slug}', [BlogController::class, 'show'])->name('blog.show');
+
+        Route::get('/author/{slug}', [BlogController::class, 'author'])->name('blog.author');
+        Route::get('/tag/{slug}', [BlogController::class, 'tag'])->name('blog.tag');
+        Route::get('/category/{slug}', [BlogController::class, 'category'])->name('blog.category');
+    });
 
 
 Route::get('play-next', [WebController::class, 'playNext'])->name('PlayNext');

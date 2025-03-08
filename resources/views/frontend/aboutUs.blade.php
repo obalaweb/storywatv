@@ -1,243 +1,154 @@
 <x-guest-layout>
     <div id="main-content">
         <div class="content-area">
+            <!-- Page Header -->
             <div class="page-title">
-                <div class="main-top" style="background-image: url(assets/images/bg-page-title-03.jpg);">
+                <div class="main-top" style="background-image: url({{ asset('assets/images/bg-page-title-03.jpg') }});">
                     <div class="overlay-top-header"></div>
-
                     <div class="content container">
-                        <h1>
-                            About Us
-                        </h1>
-
+                        <h1>About Us</h1>
                         <div class="wrap-breadcrumb">
                             <ul class="breadcrumbs">
-                                <li>
-                                    <a href="javascript:;">
-                                        Home
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <span class="breadcrum-icon">/</span>
-
-                                    About Us
-                                </li>
+                                <li><a href="{{ route('index') }}">Home</a></li>
+                                <li><span class="breadcrum-icon">/</span> About Us</li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Main Content -->
             <div class="site-content layout-1">
                 <main class="site-main">
                     <div class="wrap-main-content">
-                        <!-- About about-page -->
-                        <div class="thim-about_about-page">
+                        <!-- About Section -->
+                        <section class="thim-about_about-page py-5">
                             <div class="container">
-                                <!-- shortcode heading-->
-                                <div class="bp-element bp-element-heading align-center">
-                                    <h3 class="title text-white">
-                                        Let’s make great things together!
-                                    </h3>
+                                <x-heading title="Let’s Make Great Things Together!"
+                                    subtitle="{{ $settings->site_tagline ?? 'Building amazing experiences.' }}"
+                                    class="align-center" />
 
-                                    <div class="content">
-                                        If you are a newbie to managing a WordPress website, then congratulations! You
-                                        are here at the right track with us because we are going to introduce you one of
-                                        the most knowledge when owning a WordPress page: how to find your site the best
-                                        WordPress Hosting service.This process is often overlooked.
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-8">
+                                        <p class="lead text-center">
+                                            {{ $settings->about_us ?? 'We are a passionate team dedicated to creating exceptional content and experiences. Discover more about our journey and what drives us every day.' }}
+                                        </p>
                                     </div>
                                 </div>
-                                <!-- end shortcode heading-->
 
-                                <!-- shortcode Counter -->
-                                <div class="bp-element bp-element-counter-box align-center vblog-layout-1 show-line">
-                                    <div class="item">
-                                        <span class="number">
-                                            154879
-                                        </span>
-
-                                        <span class="text">
-                                            Visitor
-                                        </span>
-                                    </div>
-
-                                    <div class="item">
-                                        <span class="number">
-                                            254879
-                                        </span>
-
-                                        <span class="text">
-                                            Download
-                                        </span>
-                                    </div>
-
-                                    <div class="item">
-                                        <span class="number">
-                                            1548
-                                        </span>
-
-                                        <span class="text">
-                                            Trailer
-                                        </span>
-                                    </div>
-
-                                    <div class="item">
-                                        <span class="number">
-                                            4.9
-                                        </span>
-
-                                        <span class="text">
-                                            Rating
-                                        </span>
-                                    </div>
-                                </div>
-                                <!-- end shortcode Counter -->
-
-                                <!-- shortcode st-list-videos -->
-                                <div class="bp-element bp-element-st-list-videos vblog-layout-slider-4">
-                                    <div class="wrap-element">
-                                        <div class="slide-videos js-call-slick-col" data-numofshow="1"
-                                            data-numofscroll="1" data-loopslide="1" data-autoscroll="0"
-                                            data-speedauto="6000"
-                                            data-responsive="[1, 1], [1, 1], [1, 1], [1, 1], [1, 1]">
-
-                                            <div class="slide-slick">
-                                                <div class="item-slick">
-                                                    <div class="item-video">
-                                                        <img src="assets/images/about-01.jpg" alt="IMG">
-                                                        <a href="https://www.youtube.com/watch?v=NEqtQYxzQaE"
-                                                            class="btn-play popup-youtube">
-                                                        </a>
-                                                    </div>
-                                                </div>
-
-                                                <div class="item-slick">
-                                                    <div class="item-video">
-                                                        <img src="assets/images/about-01.jpg" alt="IMG">
-                                                        <a href="https://www.youtube.com/watch?v=NEqtQYxzQaE"
-                                                            class="btn-play popup-youtube">
-                                                        </a>
-                                                    </div>
-                                                </div>
-
-                                                <div class="item-slick">
-                                                    <div class="item-video">
-                                                        <img src="assets/images/about-01.jpg" alt="IMG">
-
-                                                        <a href="https://www.youtube.com/watch?v=NEqtQYxzQaE"
-                                                            class="btn-play popup-youtube">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="wrap-dot-slick"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- end shortcode st-list-videos -->
+                                <!-- Counter Stats -->
+                                <x-counter-box :stats="$stats" />
                             </div>
-                        </div>
-                        <!-- end About about-page -->
+                        </section>
 
-                        <!-- Services about-page -->
-                        <div class="thim-services_about-page">
+                        <!-- Video Showcase -->
+                        <section class="thim-video-showcase bg-light py-5">
                             <div class="container">
-                                <!-- shortcode heading-->
-                                <div class="bp-element bp-element-heading align-center">
-                                    <h3 class="title">
-                                        Our Services
-                                    </h3>
+                                <x-video-slider :videos="$videos" />
+                            </div>
+                        </section>
 
-                                    <div class="description">
-                                        Let’s make great things together!
-                                    </div>
-                                </div>
-                                <!-- end shortcode heading-->
-
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <!-- shortcode icon-box -->
-                                        <div class="bp-element bp-element-icon-box align-center vblog-layout-1">
-                                            <div class="icon-box">
-                                                <div class="icon-image">
-                                                    <img src="assets/images/icon-box-01.png" alt="IMG" />
-                                                </div>
-
-                                                <div class="content">
-                                                    <h3 class="title">
-                                                        Film Production
-                                                    </h3>
-
-                                                    <div class="description">
-                                                        Lorem ipsum dolor sit a met, consectetur dipi elit, sed do
-                                                        eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                                    </div>
-                                                </div>
-                                            </div>
+                        <!-- Services Section -->
+                        <section class="thim-services_about-page py-5">
+                            <div class="container">
+                                <x-heading title="Our Services"
+                                    subtitle="Explore what we offer to bring your ideas to life."
+                                    class="align-center" />
+                                <div class="row g-4">
+                                    @foreach ($services as $service)
+                                        <div class="col-md-4">
+                                            <x-icon-box :service="$service" />
                                         </div>
-                                        <!-- end shortcode icon-box -->
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
-                        </div>
-                        <!-- end Services about-page -->
+                        </section>
 
-                        <!-- Partner about-page -->
-                        <div class="thim-partner_about-page">
+                        <!-- Partners Section -->
+                        <section class="thim-partner_about-page bg-light py-5">
                             <div class="container">
-                                <!-- shortcode brands -->
-                                <div class="bp-element bp-element-brands vblog-layout-slider-1">
-                                    <div class="wrap-element">
-                                        <div class="slide-brands js-call-slick-col" data-numofshow="5"
-                                            data-numofscroll="1" data-loopslide="1" data-autoscroll="1"
-                                            data-speedauto="3000"
-                                            data-responsive="[5, 1], [4, 1], [3, 1], [2, 1], [1, 1]">
-                                            <div class="slide-slick">
-                                                <div class="item-slick">
-                                                    <div class="brand-item">
-                                                        <img src="assets/images/brand-06.png" alt="IMG">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- end shortcode brands -->
+                                <x-brand-slider :partners="$partners" />
                             </div>
-                        </div>
-                        <!-- end Partner about-page -->
+                        </section>
 
-                        <!-- Team about-page -->
-                        <div class="thim-team_about-page">
+                        <!-- Team Section -->
+                        <section class="thim-team_about-page py-5">
                             <div class="container">
-                                <!-- shortcode heading-->
-                                <div class="bp-element bp-element-heading align-center">
-                                    <h3 class="title text-white">
-                                        Creative Team
-                                    </h3>
-
-                                    <div class="description">
-                                        Let’s make great things together!
-                                    </div>
-                                </div>
-                                <!-- end shortcode heading-->
-
-                                <!-- shortcode our-team -->
-                                <div class="bp-element bp-element-our-team layout-5">
-                                    <div class="wrap-element">
-                                        <div class="row">
-                                            <x-team-card />
+                                <x-heading title="Creative Team" subtitle="Meet the people behind our success."
+                                    class="align-center" />
+                                <div class="row g-4">
+                                    @foreach ($teamMembers as $member)
+                                        <div class="col-md-4">
+                                            <x-team-card :member="$member" />
                                         </div>
-                                    </div>
+                                    @endforeach
                                 </div>
-                                <!-- end shortcode our-team -->
                             </div>
-                        </div>
-                        <!-- end Team about-page -->
+                        </section>
                     </div>
                 </main>
             </div>
         </div>
+    </div>
+
+    <!-- Scripts for Sliders -->
+    @push('scripts')
+        <script src="{{ asset('assets/js/slick.min.js') }}"></script>
+        <script>
+            $(document).ready(function() {
+                $('.js-call-slick-col').slick({
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    autoplay: false,
+                    dots: true,
+                    appendDots: '.wrap-dot-slick',
+                    responsive: [{
+                            breakpoint: 768,
+                            settings: {
+                                slidesToShow: 1
+                            }
+                        },
+                        {
+                            breakpoint: 576,
+                            settings: {
+                                slidesToShow: 1
+                            }
+                        }
+                    ]
+                });
+
+                $('.slide-brands').slick({
+                    slidesToShow: 5,
+                    slidesToScroll: 1,
+                    autoplay: true,
+                    autoplaySpeed: 3000,
+                    responsive: [{
+                            breakpoint: 1200,
+                            settings: {
+                                slidesToShow: 4
+                            }
+                        },
+                        {
+                            breakpoint: 992,
+                            settings: {
+                                slidesToShow: 3
+                            }
+                        },
+                        {
+                            breakpoint: 768,
+                            settings: {
+                                slidesToShow: 2
+                            }
+                        },
+                        {
+                            breakpoint: 576,
+                            settings: {
+                                slidesToShow: 1
+                            }
+                        }
+                    ]
+                });
+            });
+        </script>
+    @endpush
 </x-guest-layout>

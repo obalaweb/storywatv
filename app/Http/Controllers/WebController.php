@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Movie;
+use App\Models\Setting;
 use App\Models\Video;
 use Firefly\FilamentBlog\Models\Post;
 use Illuminate\Contracts\View\View;
@@ -42,13 +43,40 @@ class WebController extends Controller
 
     public function aboutUs()
     {
-        return view('frontend.aboutUs');
-    }
 
-    public function blog()
-    {
-        $posts = Post::latest()->paginate(4);
-        return view('blog.index', compact('posts'));
+        $settings = Setting::firstOrCreate([], [
+            'site_name' => 'Your Site Name',
+            'site_tagline' => 'Building amazing experiences.',
+        ]);
+
+        $stats = [
+            ['value' => 154879, 'label' => 'Visitors'],
+            ['value' => 254879, 'label' => 'Downloads'],
+            ['value' => 1548, 'label' => 'Trailers'],
+            ['value' => 4.9, 'label' => 'Rating'],
+        ];
+
+        $videos = [
+            ['title' => 'Intro Video', 'thumbnail' => asset('assets/images/about-01.jpg'), 'url' => 'https://www.youtube.com/watch?v=NEqtQYxzQaE'],
+            // Add more videos
+        ];
+
+        $services = [
+            ['title' => 'Film Production', 'description' => 'Lorem ipsum dolor sit amet...', 'icon' => asset('assets/images/icon-box-01.png')],
+            // Add more services
+        ];
+
+        $partners = [
+            ['name' => 'Partner 1', 'logo' => asset('assets/images/brand-06.png')],
+            // Add more partners
+        ];
+
+        $teamMembers = [
+            ['name' => 'John Doe', 'role' => 'Director', 'photo' => asset('assets/images/team-01.jpg'), 'twitter' => '#', 'linkedin' => '#'],
+            // Add more team members
+        ];
+
+        return view('frontend.aboutUs', compact('settings', 'stats', 'videos', 'services', 'partners', 'teamMembers'));
     }
 
 

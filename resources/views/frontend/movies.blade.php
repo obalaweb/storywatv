@@ -1,27 +1,19 @@
 <x-guest-layout layout="home-2">
-
     <div id="main-content">
         <div class="content-area">
+            <!-- Page Header -->
             <div class="page-title">
-                <div class="main-top" style="background-image: url(assets/images/bg-page-title-01.jpg);">
+                <div class="main-top" style="background-image: url({{ asset('assets/images/bg-page-title-01.jpg') }});">
                     <div class="overlay-top-header"></div>
-
                     <div class="content container">
-                        <h1>
-                            Shop
-                        </h1>
-
+                        <h1>Shop</h1>
                         <div class="wrap-breadcrumb">
                             <ul class="breadcrumbs">
                                 <li>
-                                    <a href="javascript:;">
-                                        Home
-                                    </a>
+                                    <a href="{{ route('index') }}">Home</a>
                                 </li>
-
                                 <li>
                                     <span class="breadcrum-icon">/</span>
-
                                     Shop
                                 </li>
                             </ul>
@@ -30,48 +22,63 @@
                 </div>
             </div>
 
+            <!-- Main Content -->
             <div class="site-content sidebar-right layout-1">
                 <div class="container">
                     <div class="row">
-                        <main class="site-main col-lg-9">
+                        <main class="site-main col-lg-9 col-md-8 col-sm-12">
                             <div class="wrap-main-content">
-                                <!-- Block products-list -->
                                 <div class="products-list">
                                     <div class="wrap-element">
+                                        <!-- Sorting and Results -->
                                         <div class="heading-products">
                                             <div class="results">
-                                                Showing all 8 results
+                                                Showing {{ $movies->count() }} of {{ $movies->total() }} results
                                             </div>
-
                                             <div class="sorting-select">
                                                 <label data-style="vblog-shop-page">
-                                                    <select>
-                                                        <option>Default sorting</option>
-                                                        <option>Sorting by prices</option>
-                                                        <option>Sorting by name</option>
-                                                        <option>Popular</option>
+                                                    <select wire:model="sortBy" class="form-select">
+                                                        <option value="default">Default sorting</option>
+                                                        <option value="price_asc">Price: Low to High</option>
+                                                        <option value="price_desc">Price: High to Low</option>
+                                                        <option value="name">Sort by Name</option>
+                                                        <option value="views">Sort by Popularity</option>
                                                     </select>
                                                 </label>
                                             </div>
                                         </div>
 
-                                        <div class="row">
-                                            <div class="col-sm-6 col-md-4">
-                                                @foreach($movies as $movie)
+                                        <!-- Products Grid -->
+                                        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+                                            @forelse($movies as $movie)
+                                                <div class="col">
                                                     <x-movie :movie="$movie" />
-                                                @endforeach
-                                            </div>
+                                                </div>
+                                            @empty
+                                                <div class="col-12 text-center py-5">
+                                                    <p class="text-muted">No movies found in the shop.</p>
+                                                </div>
+                                            @endforelse
                                         </div>
+
+                                        <!-- Pagination -->
+                                        @if ($movies->hasPages())
+                                            <div class="pagination mt-4">
+                                                {{ $movies->links() }}
+                                            </div>
+                                        @endif
                                     </div>
                                 </div>
-                                <!-- end Block products-list -->
                             </div>
                         </main>
-                        <div class="widget-area col-sm-9 col-md-8 col-lg-3 sticky-sidebar">
+
+                        <!-- Sidebar -->
+                        <aside class="widget-area col-lg-3 col-md-4 col-sm-12 sticky-sidebar">
                             <livewire:sidebar />
-                        </div>
+                        </aside>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 </x-guest-layout>
