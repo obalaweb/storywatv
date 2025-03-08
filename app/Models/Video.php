@@ -26,6 +26,13 @@ class Video extends Model
         'trending_since',
     ];
 
+    protected $casts = [
+        'tags' => 'array',
+        'is_trending' => 'boolean',
+        'is_featured' => 'boolean',
+        'trending_since' => 'datetime',
+    ];
+
     /**
      * Get the category that owns the video.
      */

@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Movie;
 use App\Models\Video;
 use Firefly\FilamentBlog\Models\Post;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 
@@ -34,7 +35,7 @@ class WebController extends Controller
         return view('frontend.index', compact('videos', 'categories', 'otherVideos', 'featuredVideo', 'posts'));
     }
 
-    public function contactUs()
+    public function contactUs(): View
     {
         return view('frontend.contactUs');
     }
@@ -123,8 +124,8 @@ class WebController extends Controller
             $nextIndex = ($currentIndex + 1) % $videosCount;
             $nextVideo = $videos->get($nextIndex);
         } else {
-            // If no old video provided, start with the first video.
-            $nextVideo = $videos->first();
+            // If no old video provided, it picks random video.
+            $nextVideo = $videos->random();
 
         }
 

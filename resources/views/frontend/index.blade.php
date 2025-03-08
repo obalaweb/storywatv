@@ -300,18 +300,13 @@
         <script src="https://www.youtube.com/iframe_api"></script>
         <script>
             let player;
-
-            // Load the YouTube IFrame Player API asynchronously
-            const tag = document.createElement('script');
-            tag.src = "https://www.youtube.com/iframe_api";
-            const firstScriptTag = document.getElementsByTagName('script')[0];
-            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+            let checkInterval;
 
             function onYouTubeIframeAPIReady() {
                 const videoId = document.getElementById('videoId').textContent;
 
                 player = new YT.Player('play', {
-                    videoId: videoId, // Initial video ID
+                    videoId: videoId,
                     width: '100%',
                     height: '580',
                     playerVars: {
@@ -320,23 +315,46 @@
                         modestbranding: 1
                     },
                     events: {
-                        onReady: (event) => event.target.playVideo(),
+                        onReady: onPlayerReady,
                         onStateChange: onPlayerStateChange
                     }
                 });
             }
 
+            function onPlayerReady(event) {
+                event.target.playVideo();
+                startTimeCheck();
+            }
+
             function onPlayerStateChange(event) {
-                if (event.data === YT.PlayerState.ENDED) {
-                    playNextVideo();
+                if (event.data === YT.PlayerState.PLAYING) {
+                    startTimeCheck();
+                } else if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
+                    clearInterval(checkInterval);
                 }
+            }
+
+            function startTimeCheck() {
+                // Clear any existing interval to prevent multiple timers
+                clearInterval(checkInterval);
+
+                // Check every half second
+                checkInterval = setInterval(() => {
+                    const currentTime = player.getCurrentTime();
+                    const duration = player.getDuration();
+                    const timeLeft = duration - currentTime;
+
+                    // Switch video when 2 seconds remain
+                    if (timeLeft <= 2 && timeLeft > 0) {
+                        clearInterval(checkInterval);
+                        playNextVideo();
+                    }
+                }, 500); // 500ms = 0.5 seconds polling interval
             }
 
             async function playNextVideo() {
                 try {
                     const response = await fetch("/play-next");
-
-                    console.log(response);
 
                     if (!response.ok) {
                         throw new Error(`HTTP error! status: ${response.status}`);
