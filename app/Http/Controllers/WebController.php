@@ -91,21 +91,6 @@ class WebController extends Controller
         return view('movies.show', compact('movie'));
     }
 
-
-    public function videos()
-    {
-        return view('videos.index');
-    }
-
-    public function showVideo(Video $video)
-    {
-        $nextVideo = $video->nextVideo();
-        $previousVideo = $video->previousVideo();
-        $relatedVideos = Video::where('category_id', $video->category_id)->where('id', '!=', $video->id)->take(6)->get();
-        return view('videos.show', compact('video', 'previousVideo', 'nextVideo', 'relatedVideos'));
-    }
-
-
     public function submitVideo()
     {
         return view('frontend.submitVideo');

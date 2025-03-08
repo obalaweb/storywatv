@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\VideoController;
 use App\Http\Controllers\WebController;
 use Illuminate\Support\Facades\Route;
 
@@ -11,8 +12,8 @@ Route::get('submit-video', [WebController::class, 'submitVideo'])->name('submitV
 
 Route::get('about-us', [WebController::class, 'aboutUs'])->name('aboutUs');
 
-Route::get('videos', [WebController::class, 'videos'])->name('videos');
-Route::get('videos/{video:youtube_id}', [WebController::class, 'showVideo'])->name('videos.show');
+Route::get('videos', [VideoController::class, 'index'])->name('videos');
+Route::get('videos/{video:youtube_id}', [VideoController::class, 'show'])->name('videos.show');
 
 Route::get('movies', [WebController::class, 'movies'])->name('movies');
 Route::get('movies/{movie:slug}', [WebController::class, 'showMovie'])->name('showMovie');

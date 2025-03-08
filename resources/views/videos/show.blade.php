@@ -209,10 +209,10 @@
                                             <div class="entry-tag-share">
                                                 <div class="tags-links">
                                                     <span class="name-field">Tags:</span>
-                                                    @foreach ($video->tags as $tag)
+                                                    {{-- @foreach ($video->tags as $tag)
                                                         <a href="javascript:;"
                                                             class="tag-item">{{ $tag->name }}</a>
-                                                    @endforeach
+                                                    @endforeach --}}
                                                 </div>
 
                                                 <div class="share-video">
@@ -315,7 +315,7 @@
                                                                     <div class="item-slick">
                                                                         <div class="post-item">
                                                                             <div class="pic">
-                                                                                <img src="{{ $rVideo->thumbnail->url }}"
+                                                                                <img src="{{ $rVideo->thumbnail ? $rVideo->thumbnail->url : '' }}"
                                                                                     alt="IMG">
 
                                                                                 <div class="overlay"></div>
