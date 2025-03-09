@@ -209,10 +209,12 @@
                                             <div class="entry-tag-share">
                                                 <div class="tags-links">
                                                     <span class="name-field">Tags:</span>
-                                                    {{-- @foreach ($video->tags as $tag)
-                                                        <a href="javascript:;"
-                                                            class="tag-item">{{ $tag->name }}</a>
-                                                    @endforeach --}}
+                                                    @if (isset($video->tags) && count($video->tags) > 0)
+                                                        @foreach ($video->tags as $tag)
+                                                            <a href="javascript:;"
+                                                                class="tag-item">{{ $tag->name }}</a>
+                                                        @endforeach
+                                                    @endif
                                                 </div>
 
                                                 <div class="share-video">

@@ -68,6 +68,7 @@ class VideoResource extends Resource
                                 ->prefix('https://')
                                 ->placeholder('youtube.com/watch?v=...')
                                 ->helperText('Enter a valid YouTube URL')
+                                ->rules(['regex:/^(https?:\/\/)?(www\.)?youtube\.com\/watch\?v=[\w-]{11}$/'])
                                 ->columnSpanFull(),
                             TextInput::make('youtube_id')
                                 ->required()
