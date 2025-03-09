@@ -1,56 +1,58 @@
 <x-guest-layout>
     <div id="main-content" style="background: #1e1e1e;">
         <!-- Banner home-1 -->
-        <div class="thim-banner_home-1" style="background-image: url(assets/images/gulu.jpg);">
-            <div class="overlay-area"></div>
+        @if (isset($featuredVideo))
+            <div class="thim-banner_home-1" style="background-image: url(assets/images/gulu.jpg);">
+                <div class="overlay-area"></div>
 
-            <div class="container">
-                <!-- shortcode st-list-videos -->
-                <div class="bp-element bp-element-st-list-videos vblog-layout-1">
-                    <div class="wrap-element">
-                        <div class="feature-item">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="video">
-                                        <div id="play"></div>
-                                        <span id="videoId" class="d-none">{{ $featuredVideo->youtube_id }}</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- end shortcode st-list-videos -->
-
-                <!-- shortcode st-list-videos -->
-                <div class="bp-element bp-element-st-list-videos vblog-layout-1-1">
-                    <div class="wrap-element">
-                        <div class="normal-items">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="text">
-                                        <h1 class="title">
-                                            <a href="#" style="color:white; font-size: 20px;">
-                                                {{ $featuredVideo->title }}
-                                            </a>
-                                        </h1>
-                                        <div class="description">
-                                            {{ $featuredVideo->short_description }}
+                <div class="container">
+                    <!-- shortcode st-list-videos -->
+                    <div class="bp-element bp-element-st-list-videos vblog-layout-1">
+                        <div class="wrap-element">
+                            <div class="feature-item">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="video">
+                                            <div id="play"></div>
+                                            <span id="videoId" class="d-none">{{ $featuredVideo->youtube_id }}</span>
                                         </div>
-
-                                        <a href="{{ route('videos.show', $featuredVideo->youtube_id) }}"
-                                            class="btn-readmore btn-normal shape-round">
-                                            Read More
-                                        </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!-- end shortcode st-list-videos -->
+
+                    <!-- shortcode st-list-videos -->
+                    <div class="bp-element bp-element-st-list-videos vblog-layout-1-1">
+                        <div class="wrap-element">
+                            <div class="normal-items">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="text">
+                                            <h1 class="title">
+                                                <a href="#" style="color:white; font-size: 20px;">
+                                                    {{ $featuredVideo->title }}
+                                                </a>
+                                            </h1>
+                                            <div class="description">
+                                                {{ $featuredVideo->short_description }}
+                                            </div>
+
+                                            <a href="{{ route('videos.show', $featuredVideo->youtube_id) }}"
+                                                class="btn-readmore btn-normal shape-round">
+                                                Read More
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end shortcode st-list-videos -->
                 </div>
-                <!-- end shortcode st-list-videos -->
             </div>
-        </div>
+        @endif
         <!-- end Banner home-1 -->
 
         <!-- Popular video home-1 -->
