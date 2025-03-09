@@ -19,6 +19,7 @@ use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
+use Filament\Forms\Get;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\IconColumn;
@@ -69,13 +70,24 @@ class VideoResource extends Resource
                                 ->placeholder('youtube.com/watch?v=...')
                                 ->helperText('Enter a valid YouTube URL')
                                 ->rules(['regex:/^(https?:\/\/)?(www\.)?youtube\.com\/watch\?v=[\w-]{11}$/'])
+                                ->live(onBlur: true) // Make the field reactive
+                                ->afterStateUpdated(function ($state, callable $set) {
+                                    // Extract YouTube ID from the URL
+                                    $youtubeId = self::extractYoutubeId($state);
+                                    if ($youtubeId) {
+                                        $set('youtube_id', $youtubeId); // Set the youtube_id field
+                                    }
+                                })
                                 ->columnSpanFull(),
+
                             TextInput::make('youtube_id')
                                 ->required()
                                 ->unique(Video::class, 'youtube_id', ignoreRecord: true)
                                 ->maxLength(50)
                                 ->helperText('The YouTube video ID (e.g., "dQw4w9WgXcQ")')
-                                ->columnSpanFull(),
+                                ->columnSpanFull()
+                                ->disabled(true), // Optional: disable manual editing if URL is provided
+
                             RichEditor::make('description')
                                 ->toolbarButtons([
                                     'bold',
@@ -264,6 +276,15 @@ class VideoResource extends Resource
         ];
     }
 
+    // Helper method to extract YouTube ID
+    protected static function extractYoutubeId($url): ?string
+    {
+        $pattern = '/^(?:https?:\/\/)?(?:www\.)?youtube\.com\/watch\?v=([\w-]{11})$/';
+        if (preg_match($pattern, $url, $matches)) {
+            return $matches[1]; // Return the 11-character video ID
+        }
+        return null; // Return null if no match
+    }
     public static function getPages(): array
     {
         return [
