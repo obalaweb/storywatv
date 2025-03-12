@@ -18,7 +18,7 @@
 
                     <li>
                         <span class="breadcrum-icon">/</span>
-                        Blog
+                        {{ $title }}
                     </li>
                 </ul>
             </div>

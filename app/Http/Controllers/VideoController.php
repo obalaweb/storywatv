@@ -9,7 +9,8 @@ class VideoController extends Controller
 {
     public function index()
     {
-        return view('videos.index');
+        $videos = Video::latest()->paginate(12);
+        return view('videos.index', compact('videos'));
     }
 
     public function show(Video $video)
@@ -19,5 +20,10 @@ class VideoController extends Controller
         $relatedVideos = Video::where('category_id', $video->category_id)->where('id', '!=', $video->id)->take(6)->get();
 
         return view('videos.show', compact('video', 'previousVideo', 'nextVideo', 'relatedVideos'));
+    }
+
+    public function category()
+    {
+        return view('videos.category');
     }
 }

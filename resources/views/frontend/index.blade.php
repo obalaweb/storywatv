@@ -313,12 +313,13 @@
                     height: '580',
                     playerVars: {
                         autoplay: 1,
-                        mute: 1, // Ensures autoplay works on mobile
+                        mute: 1,
                         modestbranding: 1
                     },
                     events: {
                         onReady: onPlayerReady,
-                        onStateChange: onPlayerStateChange
+                        onStateChange: onPlayerStateChange,
+                        onError: onPlayerError // Added error handler
                     }
                 });
             }
@@ -336,22 +337,30 @@
                 }
             }
 
-            function startTimeCheck() {
-                // Clear any existing interval to prevent multiple timers
+            // Handle video errors (e.g., video not found, invalid ID)
+            function onPlayerError(event) {
+                console.error("Player error occurred:", event.data);
+                // Common error codes:
+                // 2: Invalid parameter
+                // 5: HTML5 player error
+                // 100: Video not found
+                // 101/150: Video not allowed to play
                 clearInterval(checkInterval);
+                playNextVideo(); // Play next video on error
+            }
 
-                // Check every half second
+            function startTimeCheck() {
+                clearInterval(checkInterval);
                 checkInterval = setInterval(() => {
                     const currentTime = player.getCurrentTime();
                     const duration = player.getDuration();
                     const timeLeft = duration - currentTime;
 
-                    // Switch video when 2 seconds remain
                     if (timeLeft <= 2 && timeLeft > 0) {
                         clearInterval(checkInterval);
                         playNextVideo();
                     }
-                }, 500); // 500ms = 0.5 seconds polling interval
+                }, 500);
             }
 
             async function playNextVideo() {
@@ -361,15 +370,19 @@
                     if (!response.ok) {
                         throw new Error(`HTTP error! status: ${response.status}`);
                     }
+
                     const data = await response.json();
 
                     if (data.videoId) {
                         player.loadVideoById(data.videoId);
                     } else {
-                        console.error("No next video ID received.");
+                        console.error("No next video ID received, trying again...");
+                        setTimeout(playNextVideo, 1000); // Retry after 1 second if no video ID
                     }
                 } catch (error) {
                     console.error("Error fetching next video:", error);
+                    // Retry after a delay in case of network or server errors
+                    setTimeout(playNextVideo, 2000); // Retry after 2 seconds
                 }
             }
         </script>

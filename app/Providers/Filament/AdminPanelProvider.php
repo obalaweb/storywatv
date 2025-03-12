@@ -46,6 +46,8 @@ class AdminPanelProvider extends PanelProvider
                     ->registerNavigation(true)
                     ->defaultListView('list' || 'grid'),
                 \Firefly\FilamentBlog\Blog::make(),
+                \BezhanSalleh\FilamentGoogleAnalytics\FilamentGoogleAnalyticsPlugin::make(),
+
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([

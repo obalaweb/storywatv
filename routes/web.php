@@ -15,6 +15,8 @@ Route::get('about-us', [WebController::class, 'aboutUs'])->name('aboutUs');
 Route::get('videos', [VideoController::class, 'index'])->name('videos');
 Route::get('videos/{video:youtube_id}', [VideoController::class, 'show'])->name('videos.show');
 
+Route::get("videos/categories/{category:slug}", [VideoController::class, 'index'])->name('videos.category');
+
 Route::get('movies', [WebController::class, 'movies'])->name('movies');
 Route::get('movies/{movie:slug}', [WebController::class, 'showMovie'])->name('showMovie');
 
