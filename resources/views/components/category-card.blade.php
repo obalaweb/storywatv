@@ -1,6 +1,7 @@
 <div class="item-slick">
     <div class="post-item">
-        <img src="{{ $category->thumbnail ? $category->url : '' }}" alt="IMG">
+
+        <img src="{{ isset($category->thumbnail) ? $category->image->url : '' }}" alt="IMG">
 
         <div class="overlay"></div>
 
