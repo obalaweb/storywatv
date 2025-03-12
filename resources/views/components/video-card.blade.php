@@ -1,9 +1,9 @@
 @props(['class' => '', 'title' => '', 'image' => '', 'video'])
 
 
-<div class="post-item {{$class}}">
+<div class="post-item {{ $class }}">
     <a href="javascript:;">
-        <img src="{{ $video ? $video->thumbnail->url : $image}}" alt="IMG"></a>
+        <img src="{{ $video ? ($video->thumbnail_url ? $video->thumbnail->url : $image) : $image }}" alt="IMG"></a>
 
     <div class="overlay"></div>
 
@@ -19,10 +19,10 @@
 
     <div class="content">
         <h4 class="title">
-            <a href="{{$video ? $video->youtube_url : ''}}" class="btn-play popup-youtube">
+            <a href="{{ $video ? $video->youtube_url : '' }}" class="btn-play popup-youtube">
             </a>
 
         </h4>
-        {{ $slot}}
+        {{ $slot }}
     </div>
 </div>
