@@ -83,8 +83,7 @@ class VideoResource extends Resource
 
                             Hidden::make('youtube_id')
                                 ->required()
-                                ->unique(Video::class, 'youtube_id', ignoreRecord: true)
-                                ->maxLength(50),
+                                ->unique(Video::class, 'youtube_id', ignoreRecord: true),
 
                             RichEditor::make('description')
                                 ->toolbarButtons([
