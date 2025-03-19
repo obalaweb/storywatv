@@ -12,6 +12,7 @@ use Awcodes\Curator\Components\Tables\CuratorColumn;
 use Filament\Forms;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
@@ -80,13 +81,10 @@ class VideoResource extends Resource
                                 })
                                 ->columnSpanFull(),
 
-                            TextInput::make('youtube_id')
+                            Hidden::make('youtube_id')
                                 ->required()
                                 ->unique(Video::class, 'youtube_id', ignoreRecord: true)
-                                ->maxLength(50)
-                                ->helperText('The YouTube video ID (e.g., "dQw4w9WgXcQ")')
-                                ->columnSpanFull()
-                                ->disabled(true), // Optional: disable manual editing if URL is provided
+                                ->maxLength(50),
 
                             RichEditor::make('description')
                                 ->toolbarButtons([
