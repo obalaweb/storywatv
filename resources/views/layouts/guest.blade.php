@@ -46,7 +46,10 @@
     <div id="wrapper-container">
         @include('layouts.header')
         {{ $slot }}
-        @include('layouts.footer')
+
+        @if (!request()->is('/'))
+            @include('layouts.footer')
+        @endif
     </div>
 
     <!--===============================================================================================-->
