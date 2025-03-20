@@ -3,18 +3,20 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LW2G0WKDY3"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
+    @if (!auth()->check())
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-LW2G0WKDY3"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
 
-        gtag('config', 'G-LW2G0WKDY3');
-    </script>
+            gtag('config', 'G-LW2G0WKDY3');
+        </script>
+    @endif
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
