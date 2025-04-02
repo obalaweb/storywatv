@@ -64,13 +64,16 @@
                                         <a href="javascript:;" class="social-item">
                                             <i class="ion ion-social-youtube"></i>
                                         </a>
-
-                                        <a href="javascript:;" class="social-item">
-                                            <i class="ion ion-social-instagram-outline"></i>
-                                        </a>
                                     </div>
                                 </div>
                                 <!-- end shortcode social -->
+
+                                {{-- mobile app --}}
+                                <a class="btn btn-danger ml-4" href="{{ url('storage/app/storywa.apk') }}" download>
+                                    <i class="ion ion-social-android"></i>
+                                    Download App
+                                </a>
+
                             </div>
                         </div>
                     </div>
