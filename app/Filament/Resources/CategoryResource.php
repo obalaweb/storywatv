@@ -16,6 +16,8 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Forms\Components\Grid;
+use Illuminate\Support\Str;
 
 class CategoryResource extends Resource
 {
@@ -32,13 +34,24 @@ class CategoryResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('name')
-                    ->columnSpanFull()
-                    ->required(),
-                RichEditor::make('description'),
-                CuratorPicker::make('thumbnail')
-                    ->maxWidth(100)
-                    ->relationship('image', 'image'),
+                Grid::make(12)
+                    ->schema([
+                        TextInput::make('name')
+                            ->columnSpan(8)
+                            ->required()
+                            ->live(onBlur: true)
+                            ->afterStateUpdated(fn($state, callable $set) => $set('slug', Str::slug($state))),
+                        TextInput::make('slug')
+                            ->columnSpan(4)
+                            ->required()
+                            ->unique(Category::class, 'slug', ignoreRecord: true),
+                        RichEditor::make('description')
+                            ->columnSpanFull(),
+                        CuratorPicker::make('thumbnail')
+                            ->maxWidth(100)
+                            ->relationship('image', 'image')
+                            ->columnSpanFull(),
+                    ]),
             ]);
     }
 
@@ -50,8 +63,13 @@ class CategoryResource extends Resource
                     ->circular()
                     ->size(60),
                 Tables\Columns\TextColumn::make('name')
-                    ->description(fn(Category $category) => config('app.url') . '/categories/' . $category->slug),
-                Tables\Columns\TextColumn::make('created_at')->dateTime(),
+                    ->description(fn(Category $category) => config('app.url') . '/categories/' . $category->slug)
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->dateTime('d/m/Y H:i')
+                    ->sortable()
+                    ->toggleable(),
             ])
             ->filters([
                 //
@@ -64,7 +82,11 @@ class CategoryResource extends Resource
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
-            ]);
+            ])
+            ->defaultSort('created_at', 'desc')
+            ->persistFiltersInSession()
+            ->persistSearchInSession()
+            ->persistColumnSearchesInSession();
     }
 
     public static function getPages(): array
@@ -74,4 +96,8 @@ class CategoryResource extends Resource
         ];
     }
 
+    public static function getNavigationGroup(): ?string
+    {
+        return 'System';
+    }
 }

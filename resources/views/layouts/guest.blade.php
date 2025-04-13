@@ -69,7 +69,7 @@
     <script src="{{ asset('assets/js/libs/select2/select2.min.js') }}"></script>
     <!--===============================================================================================-->
     <script src="{{ asset('assets/js/thim-custom.js') }}"></script>
-    @yield('scripts')
+    @stack('scripts')
     <div id="back-to-top" class="btn-back-to-top">
         <i class="ion ion-ios-arrow-thin-up"></i>
     </div>

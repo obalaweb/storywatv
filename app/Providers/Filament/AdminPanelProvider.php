@@ -35,6 +35,11 @@ class AdminPanelProvider extends PanelProvider
             ->pages([
                 Pages\Dashboard::class,
             ])
+            ->navigationGroups([
+                'Content',
+                'User Management',
+                'System',
+            ])
             ->plugins([
                 \Awcodes\Curator\CuratorPlugin::make()
                     ->label('Media')
@@ -50,8 +55,7 @@ class AdminPanelProvider extends PanelProvider
 
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
-            ->widgets([
-            ])
+            ->widgets([])
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,

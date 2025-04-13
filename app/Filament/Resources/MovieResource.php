@@ -33,7 +33,7 @@ class MovieResource extends Resource
     protected static ?string $model = Movie::class;
     protected static ?string $navigationIcon = 'heroicon-o-film';
     protected static ?string $navigationGroup = 'Content';
-    protected static ?int $navigationSort = 10;
+    protected static ?int $navigationSort = 3;
 
     public static function getLabel(): string
     {
@@ -113,6 +113,7 @@ class MovieResource extends Resource
 
                 Section::make('Media & Details')
                     ->collapsible()
+                    ->collapsed()
                     ->schema([
                         Grid::make(12)
                             ->schema([
@@ -173,19 +174,24 @@ class MovieResource extends Resource
                     ->description(fn(Movie $movie) => $movie->genre),
                 TextColumn::make('release_date')
                     ->date('d/m/Y')
-                    ->sortable(),
+                    ->sortable()
+                    ->toggleable(),
                 TextColumn::make('duration')
                     ->formatStateUsing(fn($state) => "$state min")
-                    ->sortable(),
+                    ->sortable()
+                    ->toggleable(),
                 TextColumn::make('price')
                     ->money('UGX', divideBy: 1)
-                    ->sortable(),
+                    ->sortable()
+                    ->toggleable(),
                 Tables\Columns\IconColumn::make('is_available')
                     ->boolean()
-                    ->label('Available'),
+                    ->label('Available')
+                    ->toggleable(),
                 TextColumn::make('views')
                     ->sortable()
-                    ->alignRight(),
+                    ->alignRight()
+                    ->toggleable(),
             ])
             ->filters([
                 SelectFilter::make('genre')
@@ -196,12 +202,15 @@ class MovieResource extends Resource
                         'horror' => 'Horror',
                         'sci-fi' => 'Sci-Fi',
                         'romance' => 'Romance',
-                    ]),
+                    ])
+                    ->multiple(),
                 TernaryFilter::make('is_available'),
                 Tables\Filters\Filter::make('release_date')
                     ->form([
-                        DatePicker::make('released_from'),
-                        DatePicker::make('released_until'),
+                        DatePicker::make('released_from')
+                            ->native(false),
+                        DatePicker::make('released_until')
+                            ->native(false),
                     ])
                     ->query(function (Builder $query, array $data): Builder {
                         return $query
@@ -224,7 +233,10 @@ class MovieResource extends Resource
                         ->icon('heroicon-o-check-circle'),
                 ]),
             ])
-            ->defaultSort('release_date', 'desc');
+            ->defaultSort('release_date', 'desc')
+            ->persistFiltersInSession()
+            ->persistSearchInSession()
+            ->persistColumnSearchesInSession();
     }
 
     public static function getRelations(): array

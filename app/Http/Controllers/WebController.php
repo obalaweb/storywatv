@@ -15,25 +15,10 @@ class WebController extends Controller
 {
     public function index()
     {
-        $videos = Cache::remember('index_videos', 36000, function () {
-            return Video::latest()->where('status', 'active')->where('is_trending', 1)->take(8)->get();
-        });
-
-        $otherVideos = Cache::remember('index_other_videos', 36000, function () {
-            return Video::latest()->where('status', 'active')->where('is_trending', 0)->take(6)->get();
-        });
-        $categories = Cache::remember('index_categories', 36000, function () {
-            return Category::latest()->withCount('videos')->take(6)->get();
-        });
 
         $featuredVideo = $this->nextVideo();
 
-        $posts = Cache::remember('index_posts', 36000, function () {
-            return Post::latest()->take(9)->get();
-        });
-
-
-        return view('frontend.index', compact('videos', 'categories', 'otherVideos', 'featuredVideo', 'posts'));
+        return view('frontend.index', compact('featuredVideo'));
     }
 
     public function contactUs(): View
@@ -139,7 +124,6 @@ class WebController extends Controller
         } else {
             // If no old video provided, it picks random video.
             $nextVideo = $videos->random();
-
         }
 
         // Update the cache with the selected video.
@@ -147,5 +131,4 @@ class WebController extends Controller
 
         return $nextVideo;
     }
-
 }

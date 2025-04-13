@@ -30,7 +30,7 @@ class PodcastResource extends Resource
     protected static ?string $model = Podcast::class;
     protected static ?string $navigationIcon = 'heroicon-o-microphone';
     protected static ?string $navigationGroup = 'Content';
-    protected static ?int $navigationSort = 20;
+    protected static ?int $navigationSort = 2;
 
     public static function getLabel(): string
     {
@@ -88,6 +88,7 @@ class PodcastResource extends Resource
 
                 Section::make('Metadata')
                     ->collapsible()
+                    ->collapsed()
                     ->schema([
                         CuratorPicker::make('thumbnail')
                             ->label('Thumbnail')
@@ -170,7 +171,8 @@ class PodcastResource extends Resource
                 TextColumn::make('views')
                     ->default(0)
                     ->sortable()
-                    ->alignRight(),
+                    ->alignRight()
+                    ->toggleable(),
             ])
             ->filters([
                 SelectFilter::make('status')
@@ -178,7 +180,8 @@ class PodcastResource extends Resource
                         'draft' => 'Draft',
                         'published' => 'Published',
                         'archived' => 'Archived',
-                    ]),
+                    ])
+                    ->multiple(),
                 SelectFilter::make('is_featured')
                     ->label('Featured')
                     ->options([
@@ -187,8 +190,10 @@ class PodcastResource extends Resource
                     ]),
                 Tables\Filters\Filter::make('published_at')
                     ->form([
-                        DateTimePicker::make('from'),
-                        DateTimePicker::make('until'),
+                        DateTimePicker::make('from')
+                            ->native(false),
+                        DateTimePicker::make('until')
+                            ->native(false),
                     ])
                     ->query(function (Builder $query, array $data): Builder {
                         return $query
@@ -216,7 +221,10 @@ class PodcastResource extends Resource
                         ->icon('heroicon-o-star'),
                 ]),
             ])
-            ->defaultSort('published_at', 'desc');
+            ->defaultSort('published_at', 'desc')
+            ->persistFiltersInSession()
+            ->persistSearchInSession()
+            ->persistColumnSearchesInSession();
     }
 
     public static function getRelations(): array

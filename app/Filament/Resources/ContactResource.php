@@ -12,6 +12,7 @@ use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
+use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -32,23 +33,29 @@ class ContactResource extends Resource
     {
         return $form
             ->schema([
-                Section::make()->schema([
-                    Grid::make(12)->schema([
-                        Grid::make()->columnSpan(6)->schema([
-                            TextInput::make('name')
-                                ->columnSpanFull(),
-                        ]),
-                        Grid::make()->columnSpan(6)->schema([
-                            TextInput::make('email')
-                                ->columnSpanFull(),
-                        ]),
+                Section::make()
+                    ->schema([
+                        Grid::make(12)
+                            ->schema([
+                                TextInput::make('name')
+                                    ->columnSpan(6)
+                                    ->required(),
+                                TextInput::make('email')
+                                    ->columnSpan(6)
+                                    ->email()
+                                    ->required(),
+                                TextInput::make('subject')
+                                    ->columnSpanFull()
+                                    ->required(),
+                                Textarea::make('message')
+                                    ->columnSpanFull()
+                                    ->required(),
+                                Toggle::make('status')
+                                    ->label("Read")
+                                    ->columnSpanFull()
+                                    ->disabled(),
+                            ]),
                     ]),
-                    TextInput::make('subject'),
-                    Textarea::make('message'),
-                    Toggle::make('status')
-                        ->label("Read")
-                        ->columnSpanFull(),
-                ])
             ]);
     }
 
@@ -57,13 +64,42 @@ class ContactResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('name')
-                    ->limit(60),
-                TextColumn::make('email'),
+                    ->limit(60)
+                    ->searchable()
+                    ->sortable(),
+                TextColumn::make('email')
+                    ->searchable()
+                    ->sortable()
+                    ->toggleable(),
+                TextColumn::make('subject')
+                    ->limit(50)
+                    ->searchable()
+                    ->sortable()
+                    ->toggleable(),
+                TextColumn::make('created_at')
+                    ->dateTime('d/m/Y H:i')
+                    ->sortable()
+                    ->toggleable(),
                 ToggleColumn::make('status')
                     ->label('Read')
+                    ->sortable(),
             ])
             ->filters([
-                //
+                Tables\Filters\Filter::make('unread')
+                    ->query(fn(Builder $query): Builder => $query->where('status', false))
+                    ->label('Unread Messages'),
+                Tables\Filters\Filter::make('created_at')
+                    ->form([
+                        DateTimePicker::make('from')
+                            ->native(false),
+                        DateTimePicker::make('until')
+                            ->native(false),
+                    ])
+                    ->query(function (Builder $query, array $data): Builder {
+                        return $query
+                            ->when($data['from'], fn(Builder $q, $date) => $q->where('created_at', '>=', $date))
+                            ->when($data['until'], fn(Builder $q, $date) => $q->where('created_at', '<=', $date));
+                    }),
             ])
             ->modifyQueryUsing(fn(Builder $query) => $query->latest())
             ->actions([
@@ -75,8 +111,17 @@ class ContactResource extends Resource
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\BulkAction::make('mark_as_read')
+                        ->label('Mark as Read')
+                        ->action(fn($records) => $records->each->update(['status' => true]))
+                        ->requiresConfirmation()
+                        ->icon('heroicon-o-check-circle'),
                 ]),
-            ]);
+            ])
+            ->defaultSort('created_at', 'desc')
+            ->persistFiltersInSession()
+            ->persistSearchInSession()
+            ->persistColumnSearchesInSession();
     }
 
     public static function getWidgets(): array
@@ -94,6 +139,11 @@ class ContactResource extends Resource
     public static function getNavigationBadgeColor(): ?string
     {
         return static::getModel()::unread()->count() > 0 ? 'success' : 'warning';
+    }
+
+    public static function getNavigationGroup(): ?string
+    {
+        return 'System';
     }
 
     public static function getPages(): array

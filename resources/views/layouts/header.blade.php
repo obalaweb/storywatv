@@ -69,7 +69,8 @@
                                 <!-- end shortcode social -->
 
                                 {{-- mobile app --}}
-                                <a class="btn btn-danger ml-4" href="{{ url('storage/app/storywa.apk') }}" download>
+                                <a class="btn btn-danger ml-4" href="{{ url('storage/app/storywa.apk') }}"
+                                    download="Storywa App">
                                     <i class="ion ion-social-android"></i>
                                     Download App
                                 </a>

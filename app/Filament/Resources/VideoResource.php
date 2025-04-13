@@ -49,6 +49,11 @@ class VideoResource extends Resource
         return 'Videos';
     }
 
+    public static function getNavigationGroup(): ?string
+    {
+        return 'Content';
+    }
+
     public static function form(Form $form): Form
     {
         return $form
@@ -71,20 +76,17 @@ class VideoResource extends Resource
                                 ->placeholder('youtube.com/watch?v=...')
                                 ->helperText('Enter a valid YouTube URL')
                                 ->rules(['regex:/^(https?:\/\/)?(www\.)?youtube\.com\/watch\?v=[\w-]{11}$/'])
-                                ->live(onBlur: true) // Make the field reactive
+                                ->live(onBlur: true)
                                 ->afterStateUpdated(function ($state, callable $set) {
-                                    // Extract YouTube ID from the URL
                                     $youtubeId = self::extractYoutubeId($state);
                                     if ($youtubeId) {
-                                        $set('youtube_id', $youtubeId); // Set the youtube_id field
+                                        $set('youtube_id', $youtubeId);
                                     }
                                 })
                                 ->columnSpanFull(),
-
                             Hidden::make('youtube_id')
                                 ->required()
                                 ->unique(Video::class, 'youtube_id', ignoreRecord: true),
-
                             RichEditor::make('description')
                                 ->toolbarButtons([
                                     'bold',
@@ -110,6 +112,7 @@ class VideoResource extends Resource
                                 ->columnSpanFull(),
                             Section::make('Metadata')
                                 ->collapsible()
+                                ->collapsed()
                                 ->schema([
                                     Grid::make()
                                         ->schema([
@@ -170,6 +173,34 @@ class VideoResource extends Resource
                                                 ->inline(false),
                                         ]),
                                 ]),
+                            Section::make('Scheduling')
+                                ->collapsible()
+                                ->collapsed()
+                                ->schema([
+                                    Toggle::make('is_scheduled')
+                                        ->label('Schedule Video')
+                                        ->default(false)
+                                        ->live(),
+                                    DateTimePicker::make('scheduled_start_time')
+                                        ->native(false)
+                                        ->displayFormat('d/m/Y H:i')
+                                        ->required()
+                                        ->visible(fn(Get $get) => $get('is_scheduled'))
+                                        ->helperText('When the video should start playing'),
+                                    DateTimePicker::make('scheduled_end_time')
+                                        ->native(false)
+                                        ->displayFormat('d/m/Y H:i')
+                                        ->required()
+                                        ->visible(fn(Get $get) => $get('is_scheduled'))
+                                        ->helperText('When the video should stop playing')
+                                        ->after('scheduled_start_time'),
+                                    TextInput::make('play_order')
+                                        ->numeric()
+                                        ->minValue(1)
+                                        ->visible(fn(Get $get) => $get('is_scheduled'))
+                                        ->helperText('Order in which scheduled videos should play')
+                                        ->default(1),
+                                ]),
                         ]),
                 ]),
             ]);
@@ -195,10 +226,12 @@ class VideoResource extends Resource
                 TextColumn::make('user.name')
                     ->label('Author')
                     ->searchable()
-                    ->sortable(),
+                    ->sortable()
+                    ->toggleable(),
                 TextColumn::make('category.name')
                     ->searchable()
-                    ->sortable(),
+                    ->sortable()
+                    ->toggleable(),
                 TextColumn::make('status')
                     ->badge()
                     ->colors([
@@ -210,16 +243,24 @@ class VideoResource extends Resource
                 IconColumn::make('is_trending')
                     ->label('Trending')
                     ->boolean()
-                    ->sortable(),
+                    ->sortable()
+                    ->toggleable(),
                 TextColumn::make('trending_score')
                     ->suffix('%')
                     ->sortable()
-                    ->alignRight(),
+                    ->alignRight()
+                    ->toggleable(),
                 TextColumn::make('views')
                     ->label('Views')
                     ->sortable()
                     ->default(0)
-                    ->alignRight(),
+                    ->alignRight()
+                    ->toggleable(),
+                TextColumn::make('scheduled_start_time')
+                    ->dateTime('d/m/Y H:i')
+                    ->sortable()
+                    ->toggleable()
+                    ->visible(fn() => filament()->auth()->user()->is_admin),
             ])
             ->filters([
                 SelectFilter::make('status')
@@ -227,21 +268,29 @@ class VideoResource extends Resource
                         'draft' => 'Draft',
                         'active' => 'Published',
                         'archived' => 'Archived',
-                    ]),
+                    ])
+                    ->multiple(),
                 TernaryFilter::make('is_trending')
                     ->label('Trending Status'),
                 SelectFilter::make('category')
-                    ->relationship('category', 'name'),
+                    ->relationship('category', 'name')
+                    ->searchable()
+                    ->preload(),
                 Tables\Filters\Filter::make('trending_since')
                     ->form([
-                        DateTimePicker::make('from'),
-                        DateTimePicker::make('until'),
+                        DateTimePicker::make('from')
+                            ->native(false),
+                        DateTimePicker::make('until')
+                            ->native(false),
                     ])
                     ->query(function (Builder $query, array $data): Builder {
                         return $query
                             ->when($data['from'], fn(Builder $q, $date) => $q->where('trending_since', '>=', $date))
                             ->when($data['until'], fn(Builder $q, $date) => $q->where('trending_since', '<=', $date));
                     }),
+                Tables\Filters\Filter::make('scheduled')
+                    ->label('Scheduled Videos')
+                    ->query(fn(Builder $query): Builder => $query->where('is_scheduled', true)),
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
@@ -261,9 +310,39 @@ class VideoResource extends Resource
                         ->action(fn($records) => $records->each->update(['status' => 'active']))
                         ->requiresConfirmation()
                         ->icon('heroicon-o-check-circle'),
+                    Tables\Actions\BulkAction::make('schedule')
+                        ->label('Schedule Videos')
+                        ->form([
+                            DateTimePicker::make('start_time')
+                                ->native(false)
+                                ->required(),
+                            DateTimePicker::make('end_time')
+                                ->native(false)
+                                ->required()
+                                ->after('start_time'),
+                            TextInput::make('play_order')
+                                ->numeric()
+                                ->minValue(1)
+                                ->default(1),
+                        ])
+                        ->action(function ($records, array $data) {
+                            $records->each(function ($record) use ($data) {
+                                $record->update([
+                                    'is_scheduled' => true,
+                                    'scheduled_start_time' => $data['start_time'],
+                                    'scheduled_end_time' => $data['end_time'],
+                                    'play_order' => $data['play_order'],
+                                ]);
+                            });
+                        })
+                        ->requiresConfirmation()
+                        ->icon('heroicon-o-clock'),
                 ]),
             ])
-            ->defaultSort('created_at', 'desc');
+            ->defaultSort('created_at', 'desc')
+            ->persistFiltersInSession()
+            ->persistSearchInSession()
+            ->persistColumnSearchesInSession();
     }
 
     public static function getRelations(): array

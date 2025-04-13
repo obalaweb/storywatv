@@ -24,6 +24,11 @@ class Video extends Model
         'trending_score',
         'is_featured',
         'trending_since',
+        'short_description',
+        'is_scheduled',
+        'scheduled_start_time',
+        'scheduled_end_time',
+        'play_order'
     ];
 
     protected $casts = [
@@ -31,6 +36,9 @@ class Video extends Model
         'is_trending' => 'boolean',
         'is_featured' => 'boolean',
         'trending_since' => 'datetime',
+        'is_scheduled' => 'boolean',
+        'scheduled_start_time' => 'datetime',
+        'scheduled_end_time' => 'datetime'
     ];
 
     /**
@@ -145,9 +153,30 @@ class Video extends Model
         return $description . '...';
     }
 
+    public function scopeScheduled($query)
+    {
+        return $query->where('is_scheduled', true)
+            ->where('is_featured', true)
+            ->whereNotNull('scheduled_start_time')
+            ->whereNotNull('scheduled_end_time')
+            ->whereNotNull('play_order')
+            ->orderBy('play_order');
+    }
+
+    public function scopeCurrentlyScheduled($query)
+    {
+        $now = now();
+        return $query->scheduled()
+            ->where('scheduled_start_time', '<=', $now)
+            ->where('scheduled_end_time', '>=', $now);
+    }
+
+    public function scopeNextScheduled($query)
+    {
+        $now = now();
+        return $query->scheduled()
+            ->where('scheduled_start_time', '>', $now)
+            ->orderBy('scheduled_start_time')
+            ->first();
+    }
 }
-
-
-// $video = Video::find($videoId); // Assuming you have the video ID
-// $video->markAsTrending(100); // Mark as trending with a score of 100
-
